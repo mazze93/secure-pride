@@ -1,6 +1,6 @@
 # Secure Pride
 ![IMG_1409](https://github.com/user-attachments/assets/4b7f6ebf-4100-4bd2-8f21-d27476490470)
-![IMG_1656](https://github.com/user-attachments/assets/d5536927-ef26-4e94-9d42-4ac9a9cbbb6d)
+
 **Privacy-first cybersecurity for LGBTQ+ communities.**
 
 ## About
