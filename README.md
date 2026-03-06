@@ -1,11 +1,25 @@
 # Secure Pride
-![IMG_1409](https://github.com/user-attachments/assets/4b7f6ebf-4100-4bd2-8f21-d27476490470)
+![Mission](https://img.shields.io/badge/Mission-Community%20Cybersecurity-blue)
+![Posture](https://img.shields.io/badge/Posture-Privacy--First-critical)
+![Accessibility](https://img.shields.io/badge/Accessibility-Neurodivergent%20Inclusive-success)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-**Privacy-first cybersecurity for LGBTQ+ communities.**
+![Secure Pride Social Preview](.github/social-preview.png)
 
-## About
+Privacy-first cybersecurity tools and education for LGBTQ+ communities, built to protect people facing elevated legal and social risk.
 
-Secure Pride provides privacy-focused cybersecurity tools and services designed specifically for LGBTQ+ communities, with a focus on protecting sensitive personal information in hostile legal environments.
+## At a glance
+- Security tooling with explicit anti-surveillance posture.
+- Community-first design with accessibility built in.
+- Operational standards for trustworthy AI-assisted development.
+
+## Quick links
+- [Development](#development)
+- [Key Principles](#key-principles)
+- [Contributing](#contributing)
+
+## GitHub social preview
+Upload `.github/social-preview.png` in repository `Settings -> General -> Social preview` to use the branded card on link shares.
 
 ## Development
 
@@ -34,7 +48,5 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on contributing to Secure 
 ## Contact
 
 **Website**: [https://securepride.org](https://securepride.org)
-
-[Add contact information here]
 
 [Add contact information here]
