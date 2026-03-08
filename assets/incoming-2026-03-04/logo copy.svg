@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="48" height="48">
+  <defs>
+    <linearGradient id="mz-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00E5FF"/>
+      <stop offset="1" stop-color="#7A5CFF"/>
+    </linearGradient>
+  </defs>
+  <path d="M64 224 L64 64 L128 163 L192 64 L192 224" fill="none" stroke="url(#mz-grad)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="64" cy="64" r="7" fill="#00E5FF"/>
+  <circle cx="128" cy="163" r="7" fill="#00E5FF"/>
+  <circle cx="192" cy="64" r="7" fill="#00E5FF"/>
+</svg>
