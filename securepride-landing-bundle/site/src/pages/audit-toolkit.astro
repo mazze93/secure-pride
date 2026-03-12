@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Hero from "../components/landing/Hero.astro";
+import Proof from "../components/landing/Proof.astro";
+import ToolkitLayers from "../components/landing/ToolkitLayers.astro";
+import Deliverables from "../components/landing/Deliverables.astro";
+import Trust from "../components/landing/Trust.astro";
+import FinalCTA from "../components/landing/FinalCTA.astro";
+
+import SiteCTA from "../components/shared/SiteCTA.astro";
+
+import copy from "../content/landing/audit-toolkit.copy.md?raw";
+import seo from "../content/landing/audit-toolkit.seo.md?raw";
+import trustCopy from "../content/landing/audit-toolkit.trust.md?raw";
+import faq from "../content/landing/audit-toolkit.faq.md?raw";
+
+function parseKeyValue(md) {
+  const out = {};
+  md.split("\n").forEach((line) => {
+    const m = line.match(/^([A-Za-z0-9_-]+):\s*(.+)$/);
+    if (m) out[m[1]] = m[2].trim();
+  });
+  return out;
+}
+const meta = parseKeyValue(seo);
+
+const canonicalPath = "/audit-toolkit";
+---
+
+<BaseLayout title={meta.title ?? "Secure Pride Audit Toolkit"} description={meta.description ?? ""}>
+  <head>
+    <link rel="canonical" href={canonicalPath} />
+
+    <meta property="og:title" content={meta.og_title ?? meta.title ?? "Secure Pride Audit Toolkit"} />
+    <meta property="og:description" content={meta.og_description ?? meta.description ?? ""} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={meta.og_image ?? "/og/securepride-audit-toolkit.png"} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={meta.twitter_title ?? meta.title ?? "Secure Pride Audit Toolkit"} />
+    <meta name="twitter:description" content={meta.twitter_description ?? meta.description ?? ""} />
+    <meta name="twitter:image" content={meta.og_image ?? "/og/securepride-audit-toolkit.png"} />
+  </head>
+
+  <main class="landing">
+    <Hero
+      headline={meta.hero_headline ?? "Harden what you care about."}
+      subhead={meta.hero_subhead ?? "Security audits for community orgs and small teams—clear findings, practical fixes, zero surveillance."}
+      primaryCtaHref="/get-started"
+      primaryCtaLabel="Run the Self-Guided Audit"
+      secondaryCtaHref="/contact"
+      secondaryCtaLabel="Request a Guided Review"
+      imageSrc={meta.hero_image ?? "/og/securepride-audit-toolkit.png"}
+      imageAlt={meta.hero_image_alt ?? "Heart-shaped brass padlock with subtle internal warmth in darkness"}
+    />
+
+    <Proof copy={copy} />
+    <ToolkitLayers copy={copy} />
+    <Deliverables copy={copy} />
+    <Trust copy={trustCopy} faq={faq} />
+
+    <SiteCTA
+      variant="inline"
+      headline="Ready to run your first audit?"
+      subhead="Start self-guided in minutes, or request a guided review."
+      primaryHref="/get-started"
+      primaryLabel="Get started"
+      secondaryHref="/contact"
+      secondaryLabel="Talk to Secure Pride"
+    />
+
+    <FinalCTA
+      headline={meta.finalcta_headline ?? "Protect the people behind the infrastructure."}
+      subhead={meta.finalcta_subhead ?? "Start with an audit. Fix what matters. Build repeatable resilience."}
+      primaryCtaHref="/get-started"
+      primaryCtaLabel="Run the Self-Guided Audit"
+      secondaryCtaHref="/contact"
+      secondaryCtaLabel="Request a Guided Review"
+      note={meta.finalcta_note ?? "Already under active attack? We’ll prioritize urgent triage."}
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .landing {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 0;
+  }
+</style>

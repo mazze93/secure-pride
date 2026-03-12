@@ -1,0 +1,23 @@
+---
+const { copy } = Astro.props;
+function sliceBetween(md, start, end) {
+  const s = md.indexOf(start);
+  if (s === -1) return "";
+  const e = md.indexOf(end, s + start.length);
+  return md.slice(s + start.length, e === -1 ? md.length : e).trim();
+}
+const deliverables = sliceBetween(copy, "## DELIVERABLES_BLOCK_START", "## DELIVERABLES_BLOCK_END");
+---
+
+<section class="section">
+  <div class="wrap">
+    <h2>What you receive</h2>
+    <pre class="md__raw">{deliverables}</pre>
+  </div>
+</section>
+
+<style>
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .section { padding: 2.5rem 0; }
+  .md__raw { white-space: pre-wrap; opacity: 0.95; }
+</style>

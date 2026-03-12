@@ -1,0 +1,13 @@
+---
+const { faq } = Astro.props;
+---
+
+<section class="faq" aria-labelledby="faq-title">
+  <h3 id="faq-title">FAQ</h3>
+  <pre class="md__raw">{faq}</pre>
+</section>
+
+<style>
+  .faq { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; }
+  .md__raw { white-space: pre-wrap; opacity: 0.95; }
+</style>

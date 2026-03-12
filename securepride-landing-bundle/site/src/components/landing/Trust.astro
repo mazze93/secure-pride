@@ -1,0 +1,18 @@
+---
+import FAQ from "./FAQ.astro";
+const { copy, faq } = Astro.props;
+---
+
+<section class="section">
+  <div class="wrap">
+    <h2>Privacy-respecting by design</h2>
+    <pre class="md__raw">{copy}</pre>
+    <FAQ faq={faq} />
+  </div>
+</section>
+
+<style>
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .section { padding: 2.5rem 0; }
+  .md__raw { white-space: pre-wrap; opacity: 0.95; }
+</style>
