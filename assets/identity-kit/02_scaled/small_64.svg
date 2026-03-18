@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Secure Pride — Heart-Lock Shield (small)">
+  <!--
+    SECURE PRIDE — VECTOR SYSTEM v1.0
+    small_64.svg — Tier 3 (32–64px)
+
+    Scaling rules applied (non-negotiable):
+      - ALL scratches removed
+      - ALL prism fragments removed
+      - Clean brass shape only
+      - Meaning comes from form, not detail
+  -->
+
+  <defs>
+    <linearGradient id="brass-s" x1="0%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%"   stop-color="#D6B97A"/>
+      <stop offset="45%"  stop-color="#B08D57"/>
+      <stop offset="100%" stop-color="#7A623A"/>
+    </linearGradient>
+    <linearGradient id="brass-lock-s" x1="0%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%"   stop-color="#DFC485"/>
+      <stop offset="45%"  stop-color="#C09862"/>
+      <stop offset="100%" stop-color="#8A6E42"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Layer 1: Base Field -->
+  <rect width="64" height="64" fill="#0B0F14"/>
+
+  <!-- Layer 2: Shield (clean brass, no texture, no inner frame) -->
+  <path d="M 32,9 C 42,9 51,13 52,23 C 53,33 45,45 32,56 C 19,45 11,33 12,23 C 13,13 22,9 32,9 Z"
+    fill="url(#brass-s)"/>
+
+  <!-- Layer 3: Heart-Lock (clean form only) -->
+  <!-- Shackle -->
+  <path d="M 29,30 L 29,25 C 29,22 35,22 35,25 L 35,30"
+    fill="none" stroke="url(#brass-lock-s)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Heart body -->
+  <path d="M 32,41
+           C 27,38 24,35 24,32
+           C 24,30 25,28 28,28
+           C 30,28 31,29 32,31
+           C 33,29 34,28 36,28
+           C 39,28 40,30 40,32
+           C 40,35 37,38 32,41 Z"
+    fill="url(#brass-lock-s)"/>
+  <!-- Keyhole -->
+  <circle cx="32" cy="33" r="1.5" fill="#0B0F14"/>
+  <path d="M 31,35 L 32,39 L 33,35 Z" fill="#0B0F14"/>
+</svg>

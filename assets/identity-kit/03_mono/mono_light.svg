@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="Secure Pride — Mono Light">
+  <!--
+    SECURE PRIDE — VECTOR SYSTEM v1.0
+    mono_light.svg — Mono system (light backgrounds)
+
+    Rules (non-negotiable):
+      - Fill: #0B0F14
+      - No abrasion
+      - No prism
+      - No gradients
+      - Use on light surfaces only
+  -->
+
+  <!-- Transparent base (background provided by context) -->
+  <rect width="256" height="256" fill="none"/>
+
+  <!-- Shield -->
+  <path d="M 128,37 C 168,37 203,52 208,93 C 213,134 181,181 128,222 C 75,181 43,134 48,93 C 53,52 88,37 128,37 Z"
+    fill="#0B0F14"/>
+
+  <!-- Shackle (cutout — background shows through) -->
+  <path d="M 119,123 L 119,103 C 119,91 137,91 137,103 L 137,123"
+    fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/>
+
+  <!-- Heart body -->
+  <path d="M 128,162
+           C 108,153 98,140 98,130
+           C 98,120 104,114 112,114
+           C 119,114 125,118 128,124
+           C 131,118 137,114 144,114
+           C 152,114 158,120 158,130
+           C 158,140 148,153 128,162 Z"
+    fill="#0B0F14"/>
+
+  <!-- Keyhole -->
+  <ellipse cx="128" cy="134" rx="5" ry="5.5" fill="#FFFFFF"/>
+  <path d="M 125,139 L 128,152 L 131,139 Z" fill="#FFFFFF"/>
+</svg>
