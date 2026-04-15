@@ -1,0 +1,31 @@
+---
+import { marked } from 'marked';
+
+const { copy } = Astro.props;
+
+function sliceBetween(md: string, start: string, end: string): string {
+  const s = md.indexOf(start);
+  if (s === -1) return '';
+  const e = md.indexOf(end, s + start.length);
+  return md.slice(s + start.length, e === -1 ? md.length : e).trim();
+}
+
+const layers = sliceBetween(copy, '## TOOLKIT_BLOCK_START', '## TOOLKIT_BLOCK_END');
+const layersHtml = marked.parse(layers, { breaks: true }) as string;
+---
+
+<section class="section">
+  <div class="wrap">
+    <h2>The Secure Pride Audit Toolkit</h2>
+    <p class="lede">
+      A structured audit system that identifies exposure and delivers fixes—without surveillance.
+    </p>
+    <div class="md__rendered" set:html={layersHtml} />
+  </div>
+</section>
+
+<style>
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .section { padding: 2.5rem 0; }
+  .lede { max-width: 70ch; opacity: 0.9; margin-bottom: 1.25rem; }
+</style>

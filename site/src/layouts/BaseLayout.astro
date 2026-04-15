@@ -1,0 +1,262 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="site-header__inner">
+        <a href="/" class="site-logo" aria-label="Secure Pride — home">
+          Secure Pride
+        </a>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="/audit-toolkit">Audit Toolkit</a></li>
+            <li><a href="/get-started">Get Started</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact" class="nav-cta">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div id="main-content" tabindex="-1">
+      <slot />
+    </div>
+
+    <footer class="site-footer" role="contentinfo">
+      <div class="site-footer__inner">
+        <p class="site-footer__copy">
+          &copy; {new Date().getFullYear()} Secure Pride &middot;
+          <a href="https://securepride.org">securepride.org</a>
+        </p>
+        <p class="site-footer__policy">No telemetry. No tracking. No exceptions.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  /* ── Reset ─────────────────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; }
+  * { margin: 0; }
+  img, video { max-width: 100%; display: block; }
+
+  /* ── Base ───────────────────────────────────────────────────────────────── */
+  :root {
+    --color-bg:          #0d0d0f;
+    --color-text:        rgba(255, 255, 255, 0.92);
+    --color-accent:      rgba(22, 224, 245, 0.95);
+    --color-accent-dim:  rgba(22, 224, 245, 0.35);
+    --color-border:      rgba(255, 255, 255, 0.12);
+    --font-sans:         system-ui, -apple-system, "Segoe UI", sans-serif;
+    --max-w:             1100px;
+  }
+
+  html {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #main-content {
+    flex: 1;
+    outline: none; /* skip-link target: suppress visible outline on programmatic focus */
+  }
+
+  /* ── Accessible focus ─────────────────────────────────────────────────── */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* ── Skip link ────────────────────────────────────────────────────────── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.6rem 1rem;
+    background: var(--color-bg);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent-dim);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: top 0.1s;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* ── Site header ──────────────────────────────────────────────────────── */
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 1.25rem;
+  }
+
+  .site-header__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 3.5rem;
+  }
+
+  .site-logo {
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .site-header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+  }
+
+  .site-header nav a {
+    padding: 0.4rem 0.65rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .site-header nav a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .site-header nav .nav-cta {
+    background: rgba(22, 224, 245, 0.1);
+    border: 1px solid rgba(22, 224, 245, 0.25);
+    color: rgba(22, 224, 245, 0.9);
+  }
+
+  .site-header nav .nav-cta:hover {
+    background: rgba(22, 224, 245, 0.18);
+    color: rgba(22, 224, 245, 1);
+  }
+
+  /* ── Site footer ──────────────────────────────────────────────────────── */
+  .site-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--color-border);
+    padding: 2rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .site-footer__inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-footer__copy {
+    opacity: 0.7;
+  }
+
+  .site-footer__copy a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .site-footer__policy {
+    opacity: 0.45;
+    font-size: 0.8rem;
+  }
+
+  /* ── Shared button tokens (used across landing components) ─────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .btn--primary {
+    background: rgba(22, 224, 245, 0.15);
+    border: 1px solid rgba(22, 224, 245, 0.35);
+    color: rgba(22, 224, 245, 0.95);
+  }
+
+  .btn--primary:hover {
+    background: rgba(22, 224, 245, 0.22);
+    border-color: rgba(22, 224, 245, 0.5);
+  }
+
+  .btn--secondary {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* ── Rendered markdown sections (landing pages) ─────────────────────── */
+  .md__rendered p       { margin: 0 0 0.85em; opacity: 0.92; }
+  .md__rendered p:last-child { margin-bottom: 0; }
+  .md__rendered ul,
+  .md__rendered ol      { padding-left: 1.4rem; margin: 0 0 0.85em; }
+  .md__rendered li      { margin-bottom: 0.35em; }
+  .md__rendered strong  { font-weight: 700; color: #fff; }
+
+  /* ── Responsive header ────────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .site-header nav a { font-size: 0.82rem; padding: 0.35rem 0.5rem; }
+  }
+</style>
