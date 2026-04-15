@@ -1,0 +1,12 @@
+{
+  "name": "secure-pride",
+  "private": true,
+  "workspaces": [
+    "site"
+  ],
+  "scripts": {
+    "build": "npm -w site run build",
+    "dev": "npm -w site run dev",
+    "preview": "npm -w site run preview"
+  }
+}
