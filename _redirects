@@ -1,0 +1,5 @@
+# Force www → apex (pick one canonical form; apex is simpler with Cloudflare Pages)
+# Cloudflare Pages handles HTTPS automatically — no HTTP→HTTPS redirect needed here.
+
+# Redirect www to apex
+https://www.securepride.org/* https://securepride.org/:splat 301

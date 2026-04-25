@@ -4,417 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Secure Pride | Cyber-Defense Audit</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg: #050814;
-            --color-surface: rgba(16, 22, 41, 0.6);
-            --color-teal: #16E0F5;
-            --color-magenta: #F53FA9;
-            --color-purple: #7B5CFF;
-            --color-text-primary: #FFFFFF;
-            --color-text-secondary: #A7A9A9;
-            --color-border: rgba(22, 224, 245, 0.3);
-            --color-success: #3DFF8A;
-            --color-warning: #FFD93D;
-            --color-error: #FF5459;
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
-            --shadow-neon: 0 0 20px rgba(22, 224, 245, 0.4);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            width: 100%;
-            height: 100%;
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at 50% -20%, #1A2240 0%, #050814 70%, #020305 100%);
-            color: var(--color-text-primary);
-            overflow-x: hidden;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Header */
-        header {
-            background: rgba(16, 22, 41, 0.4);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--color-border);
-            padding: 20px 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .header-brand {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .header-logo {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--color-teal), var(--color-magenta));
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-title {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .header-title .neon {
-            color: var(--color-teal);
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .header-nav a {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 250ms ease;
-        }
-
-        .header-nav a:hover {
-            color: var(--color-teal);
-        }
-
-        .btn-support {
-            padding: 8px 16px;
-            background: linear-gradient(135deg, rgba(22, 224, 245, 0.1), rgba(245, 63, 169, 0.1));
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            color: var(--color-text-primary);
-            font-weight: 600;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 250ms ease;
-        }
-
-        .btn-support:hover {
-            background: linear-gradient(135deg, rgba(22, 224, 245, 0.2), rgba(245, 63, 169, 0.2));
-            border-color: var(--color-teal);
-            box-shadow: 0 0 20px rgba(22, 224, 245, 0.2);
-        }
-
-        /* Main Container */
-        main {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 32px;
-            padding: 32px;
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* Left Column: Confidence Gauge */
-        .gauge-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .gauge-card {
-            background: var(--color-surface);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--color-border);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .gauge-title {
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-secondary);
-            margin-bottom: 16px;
-        }
-
-        .gauge-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .gauge-svg {
-            transform: rotate(-90deg);
-            filter: drop-shadow(0 0 15px rgba(22, 224, 245, 0.2));
-        }
-
-        .gauge-value {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .gauge-value-number {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--color-teal);
-            text-shadow: 0 0 10px rgba(22, 224, 245, 0.5);
-        }
-
-        .gauge-value-label {
-            font-size: 11px;
-            color: var(--color-text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .gauge-status {
-            margin-top: 24px;
-            padding: 16px;
-            background: rgba(22, 224, 245, 0.05);
-            border-radius: 8px;
-            border-left: 3px solid var(--color-teal);
-        }
-
-        .gauge-status-label {
-            font-size: 12px;
-            color: var(--color-text-secondary);
-            margin-bottom: 6px;
-        }
-
-        .gauge-status-text {
-            font-size: 14px;
-            color: var(--color-text-primary);
-            font-weight: 500;
-        }
-
-        .status-pill {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 8px;
-        }
-
-        .status-pill.pass {
-            background: rgba(61, 255, 138, 0.15);
-            color: var(--color-success);
-            border: 1px solid rgba(61, 255, 138, 0.3);
-        }
-
-        .status-pill.warn {
-            background: rgba(255, 217, 61, 0.15);
-            color: var(--color-warning);
-            border: 1px solid rgba(255, 217, 61, 0.3);
-        }
-
-        .status-pill.fail {
-            background: rgba(255, 84, 89, 0.15);
-            color: var(--color-error);
-            border: 1px solid rgba(255, 84, 89, 0.3);
-        }
-
-        /* Right Column: Audit Feed */
-        .audit-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .audit-card {
-            background: var(--color-surface);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--color-border);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .audit-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .audit-title {
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-secondary);
-        }
-
-        .audit-status-label {
-            font-size: 12px;
-            padding: 6px 12px;
-            background: rgba(22, 224, 245, 0.1);
-            border: 1px solid var(--color-teal);
-            border-radius: 4px;
-            color: var(--color-teal);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .findings-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .finding-item {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 12px;
-            transition: all 250ms ease;
-        }
-
-        .finding-item:hover {
-            background: rgba(255, 255, 255, 0.04);
-            border-color: var(--color-border);
-        }
-
-        .finding-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 6px;
-        }
-
-        .finding-name {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--color-text-primary);
-        }
-
-        .finding-status {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .finding-detail {
-            font-size: 12px;
-            color: var(--color-text-secondary);
-            margin-bottom: 6px;
-        }
-
-        .finding-score {
-            font-size: 11px;
-            color: var(--color-text-secondary);
-            font-weight: 500;
-        }
-
-        /* Scan Progress Placeholder */
-        .scan-placeholder {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 16px;
-            text-align: center;
-        }
-
-        .scan-placeholder-text {
-            font-size: 13px;
-            color: var(--color-text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .scan-placeholder-subtext {
-            font-size: 12px;
-            color: var(--color-text-secondary);
-            font-style: italic;
-            opacity: 0.7;
-        }
-
-        /* Liquid Glass Effect */
-        .liquid-glass {
-            background: var(--color-surface);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(22, 224, 245, 0.3);
-            border-radius: 16px;
-        }
-
-        /* Loading Animation */
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-2px); }
-        }
-
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            main {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 16px;
-            }
-
-            main {
-                padding: 16px;
-                gap: 16px;
-            }
-
-            .gauge-container {
-                width: 120px;
-                height: 120px;
-            }
-
-            .gauge-value-number {
-                font-size: 28px;
-            }
-        }
-    </style>
+    <meta name="description" content="Secure Pride helps LGBTQ+ organizations audit and strengthen their cyber-defense posture — privacy-first, no tracking, no telemetry.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2306d6e0'/><stop offset='50%25' stop-color='%23b24bf3'/><stop offset='100%25' stop-color='%23ff2d95'/></linearGradient></defs><path d='M32 4L8 18v14c0 14 10 26 24 28 14-2 24-14 24-28V18Z' fill='%23111128' stroke='url(%23g)' stroke-width='3'/><rect x='22' y='29' width='20' height='15' rx='3' fill='url(%23g)' opacity='.9'/><path d='M26 29v-5a6 6 0 0 1 12 0v5' stroke='white' stroke-width='2.5' stroke-linecap='round' fill='none'/><circle cx='32' cy='36' r='2.5' fill='%230a0a1a'/></svg>">
+    <link rel="stylesheet" href="/assets/fonts/inter.css">
+    <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
+
+    <!-- Ambient glow orbs -->
+    <div class="glow-orb-tr" aria-hidden="true"></div>
+    <div class="glow-orb-bl" aria-hidden="true"></div>
+
+    <!-- Full-page circuit board pattern -->
+    <svg aria-hidden="true" style="position:fixed;inset:0;width:100%;height:100%;opacity:0.035;pointer-events:none;z-index:0;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <pattern id="circuit" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+                <path d="M20 0v40h40v40h40" stroke="#06d6e0" stroke-width="1" fill="none" opacity="0.5"/>
+                <path d="M0 60h30v-30h30" stroke="#b24bf3" stroke-width="1" fill="none" opacity="0.4"/>
+                <path d="M80 0v20h40" stroke="#ff2d95" stroke-width="1" fill="none" opacity="0.3"/>
+                <circle cx="20" cy="40" r="2.5" fill="#06d6e0" opacity="0.6"/>
+                <circle cx="60" cy="80" r="2.5" fill="#b24bf3" opacity="0.5"/>
+                <circle cx="100" cy="40" r="2" fill="#ff2d95" opacity="0.4"/>
+                <circle cx="60" cy="40" r="2" fill="#06d6e0" opacity="0.3"/>
+                <path d="M100 80v40" stroke="#06d6e0" stroke-width="1" fill="none" opacity="0.25"/>
+                <path d="M0 100h20" stroke="#b24bf3" stroke-width="1" fill="none" opacity="0.2"/>
+            </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#circuit)"/>
+    </svg>
+
     <!-- Header -->
     <header>
         <div class="header-brand">
-            <div class="header-logo"></div>
+            <!-- Shield-padlock logo -->
+            <svg width="36" height="36" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Secure Pride shield logo">
+                <defs>
+                    <linearGradient id="shieldRainbow" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%"    stop-color="#ff3d00"/>
+                        <stop offset="16.6%" stop-color="#ff9100"/>
+                        <stop offset="33.3%" stop-color="#ffd600"/>
+                        <stop offset="50%"   stop-color="#00e676"/>
+                        <stop offset="66.6%" stop-color="#448aff"/>
+                        <stop offset="83.3%" stop-color="#b24bf3"/>
+                        <stop offset="100%"  stop-color="#ff2d95"/>
+                    </linearGradient>
+                    <filter id="neonGlow">
+                        <feGaussianBlur stdDeviation="2" result="blur"/>
+                        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                </defs>
+                <!-- Outer glow -->
+                <path d="M32 4L8 16v16c0 14 10 26 24 30 14-4 24-16 24-30V16L32 4z" fill="none" stroke="#ff2d95" stroke-width="1" opacity="0.3" filter="url(#neonGlow)"/>
+                <!-- Shield body -->
+                <path d="M32 6L10 17v15c0 13 9.5 24.5 22 28 12.5-3.5 22-15 22-28V17L32 6z" fill="#111128" stroke="url(#shieldRainbow)" stroke-width="2.5"/>
+                <!-- Inner gradient fill -->
+                <path d="M32 6L10 17v15c0 13 9.5 24.5 22 28 12.5-3.5 22-15 22-28V17L32 6z" fill="url(#shieldRainbow)" opacity="0.12"/>
+                <!-- Padlock body -->
+                <rect x="22" y="30" width="20" height="16" rx="3" fill="url(#shieldRainbow)" opacity="0.9"/>
+                <!-- Padlock shackle -->
+                <path d="M26 30v-5a6 6 0 0 1 12 0v5" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.95"/>
+                <!-- Keyhole -->
+                <circle cx="32" cy="37" r="2.5" fill="#0a0a1a" opacity="0.9"/>
+                <rect x="31" y="37" width="2" height="4" rx="1" fill="#0a0a1a" opacity="0.7"/>
+                <!-- Top highlight -->
+                <path d="M32 6L10 17v6c6-2 14-4 22-4s16 2 22 4v-6L32 6z" fill="white" opacity="0.08"/>
+            </svg>
             <h1 class="header-title">SECURE <span class="neon">PRIDE</span></h1>
         </div>
         <nav class="header-nav">
@@ -429,20 +83,19 @@
     <main>
         <!-- Left Column: Confidence Gauge & Status -->
         <div class="gauge-section">
-            <div class="gauge-card liquid-glass">
-                <h3 class="gauge-title">Security Confidence</h3>
+            <div class="gauge-card">
+                <h2 class="gauge-title">Security Confidence</h2>
                 <div class="gauge-container">
                     <svg class="gauge-svg" viewBox="0 0 160 160">
                         <defs>
                             <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#16E0F5"></stop>
-                                <stop offset="100%" stop-color="#F53FA9"></stop>
+                                <stop offset="0%"   stop-color="#06d6e0"/>
+                                <stop offset="50%"  stop-color="#b24bf3"/>
+                                <stop offset="100%" stop-color="#ff2d95"/>
                             </linearGradient>
                         </defs>
-                        <!-- Background circle -->
-                        <circle class="gauge-bg" cx="80" cy="80" r="70" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="8"></circle>
-                        <!-- Progress circle -->
-                        <circle id="confidenceGauge" class="gauge-progress" cx="80" cy="80" r="70" fill="none" stroke="url(#gaugeGradient)" stroke-width="10" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="440" style="transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);"></circle>
+                        <circle cx="80" cy="80" r="70" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+                        <circle id="confidenceGauge" class="gauge-progress" cx="80" cy="80" r="70" fill="none" stroke="url(#gaugeGradient)" stroke-width="10" stroke-linecap="round" stroke-dasharray="440" stroke-dashoffset="440"/>
                     </svg>
                     <div class="gauge-value">
                         <div class="gauge-value-number" id="confidenceValue">0%</div>
@@ -458,9 +111,8 @@
                 </div>
             </div>
 
-            <!-- Audit Intelligence Section -->
-            <div class="gauge-card liquid-glass">
-                <h4 class="gauge-title">Audit Intelligence</h4>
+            <div class="gauge-card">
+                <h3 class="gauge-title">Audit Intelligence</h3>
                 <div class="findings-container">
                     <div class="finding-item">
                         <div class="finding-item-header">
@@ -476,172 +128,36 @@
                     </div>
                     <div class="finding-item">
                         <div class="finding-item-header">
-                            <span class="finding-name">Bayesian Learning Status</span>
-                            <span class="finding-score text-green" id="bayesianStatus">Active</span>
+                            <span class="finding-name">Bayesian Learning</span>
+                            <span class="finding-score score-pass" id="bayesianStatus">Active</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Right Column: Audit Feed -->
+        <!-- Right Column: Audit Feed (rainbow border) -->
         <div class="audit-section">
-            <div class="audit-card liquid-glass">
-                <div class="audit-header">
-                    <h2 class="audit-title">Credential Registry Audit</h2>
-                    <span class="audit-status-label">M3 HARDWARE ACCELERATED</span>
-                </div>
-                <div id="auditFeed" class="findings-container">
-                    <!-- Initial Placeholder -->
-                    <div class="scan-placeholder">
-                        <p class="scan-placeholder-text">Waiting for scan initialization...</p>
-                        <p class="scan-placeholder-subtext">Scanning Keychain, Certificates, and Secure Notes</p>
+            <div class="audit-card-rainbow">
+                <div class="audit-card">
+                    <div class="audit-header">
+                        <h2 class="audit-title">Credential Registry Audit</h2>
+                        <span class="audit-status-label">M3 ACCELERATED</span>
                     </div>
+                    <div id="auditFeed" class="findings-container">
+                        <div class="scan-placeholder">
+                            <p class="scan-placeholder-text">Waiting for scan initialization...</p>
+                            <p class="scan-placeholder-subtext">Scanning Keychain, Certificates, and Secure Notes</p>
+                        </div>
+                    </div>
+                    <button id="initScanBtn" class="btn-support btn-full">
+                        INITIALIZE SCAN
+                    </button>
                 </div>
-                <button onclick="startAudit()" class="btn-support" style="width: 100%; margin-top: 16px;">
-                    INITIALIZE SCAN
-                </button>
             </div>
         </div>
     </main>
 
-    <script>
-        // ==========================================
-        // Mock Audit Data: Secure Pride Standards
-        // ==========================================
-        const mockData = [
-            {
-                id: "CERT_001",
-                name: "Legacy TLS Profile",
-                detail: "SHA-1 / RSA-1024",
-                status: "fail",
-                score: -15
-            },
-            {
-                id: "PROT_001",
-                name: "Corporate Intranet",
-                detail: "Insecure Protocol (HTTP)",
-                status: "warn",
-                score: -5
-            },
-            {
-                id: "CERT_002",
-                name: "Apple Root CA",
-                detail: "System Verified",
-                status: "pass",
-                score: 10
-            },
-            {
-                id: "KEY_882",
-                name: "Development SSH Key",
-                detail: "ED25519 (Modern)",
-                status: "pass",
-                score: 20
-            },
-            {
-                id: "NOTE_01",
-                name: "Financial Recovery Codes",
-                detail: "Unencrypted Note",
-                status: "fail",
-                score: -20
-            }
-        ];
-
-        let currentConfidence = 0;
-        let targetConfidence = 0;
-
-        // ==========================================
-        // Bayesian Confidence Gauge Update
-        // ==========================================
-        function updateGauge(percent) {
-            const circle = document.getElementById('confidenceGauge');
-            const circumference = 2 * Math.PI * 70;
-            const offset = circumference - (percent / 100) * circumference;
-            circle.style.strokeDashoffset = offset;
-
-            document.getElementById('confidenceValue').textContent = `${Math.round(percent)}%`;
-
-            // Update posture status
-            const postureEl = document.getElementById('postureStatus');
-            if (percent < 20) postureEl.textContent = 'Fragile';
-            else if (percent < 50) postureEl.textContent = 'Vulnerable';
-            else if (percent < 75) postureEl.textContent = 'Baseline';
-            else postureEl.textContent = 'Robust';
-        }
-
-        // ==========================================
-        // Audit Feed Renderer
-        // ==========================================
-        function renderAuditFeed() {
-            const feed = document.getElementById('auditFeed');
-            feed.innerHTML = '';
-
-            let totalScore = 40; // Base confidence
-            let legacyCount = 0;
-
-            mockData.forEach((item, index) => {
-                const card = document.createElement('div');
-                card.className = 'finding-item';
-                
-                // Color coding by status
-                let statusColor = '';
-                if (item.status === 'pass') statusColor = 'var(--color-success)';
-                else if (item.status === 'warn') statusColor = 'var(--color-warning)';
-                else if (item.status === 'fail') statusColor = 'var(--color-error)';
-
-                // Count legacy issues
-                if (item.status !== 'pass') legacyCount++;
-
-                card.innerHTML = `
-                    <div class="finding-item-header">
-                        <div style="flex: 1;">
-                            <div class="finding-name">${item.name}</div>
-                            <div class="finding-detail">${item.detail}</div>
-                        </div>
-                        <span class="status-pill ${item.status}">${item.status.toUpperCase()}</span>
-                    </div>
-                    <div class="finding-score" style="color: ${statusColor};">Score: ${item.score > 0 ? '+' : ''}${item.score}</div>
-                `;
-
-                // Stagger animation
-                setTimeout(() => {
-                    feed.appendChild(card);
-                    totalScore = Math.max(0, Math.min(100, totalScore + item.score));
-                    updateGauge(totalScore);
-                }, index * 150);
-            });
-
-            // Update stats
-            setTimeout(() => {
-                document.getElementById('totalCreds').textContent = mockData.length;
-                document.getElementById('legacyCount').innerHTML = `<span style="color: var(--color-magenta);">${legacyCount}</span>`;
-                targetConfidence = totalScore;
-            }, mockData.length * 150);
-        }
-
-        // ==========================================
-        // Async Scan Simulation with Bayesian Processing
-        // ==========================================
-        async function startAudit() {
-            const feed = document.getElementById('auditFeed');
-            feed.innerHTML = `
-                <div class="scan-placeholder pulse">
-                    <p class="scan-placeholder-text">Starting credential scan...</p>
-                    <p class="scan-placeholder-subtext">Bayesian inference in progress</p>
-                </div>
-            `;
-
-            // Simulate async Bayesian processing
-            await new Promise(r => setTimeout(r, 800));
-            renderAuditFeed();
-        }
-
-        // ==========================================
-        // Initialization on Page Load
-        // ==========================================
-        window.onload = () => {
-            updateGauge(0);
-        };
-    </script>
+    <script src="/assets/main.js" defer></script>
 </body>
 </html>
