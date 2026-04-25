@@ -98,7 +98,7 @@ import PostMeta from '@/components/blog/PostMeta.astro';
 - `pubDate` is required; all other props are optional
 - Date is always formatted with `toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })`
 - Default author falls back to `'Secure Pride'` when omitted
-- Tags are rendered via `<TagPill tag={tag} />` with `tag={true}` attribute
+- Tags are rendered via `<TagPill tag={tag} />` — the tag string is passed directly as the `tag` prop
 
 ### Allowed variations
 
@@ -156,8 +156,8 @@ import Triptych from '@/components/blog/Triptych.astro';
 
 - **Must receive exactly 3 panels.** Passing any other count throws a runtime error: `Triptych requires exactly 3 panels; received N.`
 - Images are rendered with `loading="lazy"` and `decoding="async"`
-- Layout is a 3-column CSS grid on desktop, collapses to 1 column at `max-width: 640px`
-- Images use `aspect-ratio: 3/4` and `object-fit: cover`
+- Layout is a 3-column CSS grid on desktop (`grid-template-columns: repeat(3, 1fr)`), collapses to a single column at `max-width: 640px`
+- Images use `aspect-ratio: 3/4` and `object-fit: cover` at all breakpoints — the mobile single-column layout does not alter the aspect ratio
 
 ### Allowed variations
 
