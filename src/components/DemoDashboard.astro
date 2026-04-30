@@ -1,0 +1,58 @@
+---
+---
+
+<div
+  class="bg-dark-surface border-b border-dark-border py-8 overflow-hidden"
+  aria-hidden="true"
+>
+  <div class="mx-auto max-w-[1120px] px-6">
+    <div
+      class="rounded-xl border border-dark-borderGlow bg-dark-elevated overflow-hidden font-mono text-[0.82rem]"
+      role="img"
+      aria-label="Dashboard preview showing active protection status"
+    >
+      <!-- Title bar -->
+      <div class="flex items-center gap-2 bg-dark-surface border-b border-dark-border px-4 py-[0.65rem]">
+        <span class="w-[10px] h-[10px] rounded-full bg-[#ff5f57]"></span>
+        <span class="w-[10px] h-[10px] rounded-full bg-[#ffbd2e]"></span>
+        <span class="w-[10px] h-[10px] rounded-full bg-[#28c840]"></span>
+        <span class="ml-3 bg-dark-elevated border border-dark-border rounded-[6px] px-3 py-[0.2rem] text-[0.7rem] text-text-muted">
+          secure-pride.org/dashboard
+        </span>
+      </div>
+
+      <!-- Body -->
+      <div class="grid px-6 py-6 gap-6" style="grid-template-columns: auto 1fr auto; align-items: center;">
+        <!-- Status -->
+        <div class="flex items-center gap-[0.6rem]">
+          <span
+            class="w-[10px] h-[10px] rounded-full bg-status-protected flex-shrink-0"
+            style="box-shadow: 0 0 8px #06d6e0; animation: statusPulse 2s infinite;"
+          ></span>
+          <span class="text-status-protected font-medium text-[0.85rem]">Your organization is protected.</span>
+        </div>
+
+        <!-- Stats -->
+        <div class="flex gap-8">
+          <div class="text-center">
+            <span class="block font-bold text-[1.5rem] leading-none mb-1 text-text-primary">1,847</span>
+            <span class="text-[0.68rem] tracking-[0.1em] uppercase text-text-muted">Scans processed</span>
+          </div>
+          <div class="text-center">
+            <span class="block font-bold text-[1.5rem] leading-none mb-1 text-text-primary">23</span>
+            <span class="text-[0.68rem] tracking-[0.1em] uppercase text-text-muted">Threats blocked</span>
+          </div>
+          <div class="text-center">
+            <span class="block font-bold text-[1.5rem] leading-none mb-1 text-text-primary">91</span>
+            <span class="text-[0.68rem] tracking-[0.1em] uppercase text-text-muted">Items masked</span>
+          </div>
+        </div>
+
+        <!-- Badge -->
+        <span class="px-3 py-[0.3rem] rounded-full text-[0.68rem] font-bold tracking-[0.1em] uppercase bg-neon-green/10 text-neon-green border border-neon-green/30">
+          All clear
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,0 @@
-- Local-first workflow: run audits in your environment.
-- Data minimization: collect only what’s required to generate findings.
-- No telemetry by default.
-- Transparent outputs: you get the report; you keep the report.
-- Threat-informed: modeled for harassment, doxxing, and targeted compromise realities.
-- Documentation-first: every check is explained; fixes are reproducible.

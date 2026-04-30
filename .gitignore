@@ -1,6 +1,24 @@
+# Dependencies
+node_modules
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
+dist
+.astro
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
 .DS_Store
-*/.DS_Store
-.vscode/
-*.jam
-.superpowers/
-lighthouse-report.json
+
+# OS
+Thumbs.db

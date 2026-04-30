@@ -1,0 +1,85 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Privacy Policy - SecurePride"
+  description="SecurePride privacy policy. We are committed to protecting your data."
+  canonicalUrl="https://securepride.org/privacy/"
+>
+  <Header />
+
+  <main id="main-content" class="min-h-screen">
+    <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+      <h1 class="mb-4 font-display text-4xl sm:text-5xl font-bold text-text-primary">
+        Privacy Policy
+      </h1>
+      <p class="mb-8 text-text-secondary">Last updated: March 31, 2026</p>
+
+      <div class="prose prose-invert max-w-none space-y-8 text-text-secondary">
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Overview</h2>
+          <p>
+            SecurePride is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information.
+          </p>
+          <p class="mt-4 rounded-lg bg-dark-surface p-4 text-sm">
+            <strong>Note:</strong> This is a template privacy policy. You must customize this document to reflect SecurePride's actual data practices, including specific information about what data is collected, how it's used, and what security measures are in place. Consult with legal counsel to ensure compliance with applicable privacy laws.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Information We Collect</h2>
+          <p>We may collect information about you in a variety of ways. The information we may collect on the site includes:</p>
+          <ul class="list-disc list-inside space-y-2 mt-4">
+            <li>Personal identification information (name, email address, organization)</li>
+            <li>Information provided voluntarily through forms or communications</li>
+            <li>Log data from site access (IP address, browser type, pages visited)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Use of Your Information</h2>
+          <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the site to:</p>
+          <ul class="list-disc list-inside space-y-2 mt-4">
+            <li>Respond to your inquiries and fulfill your requests</li>
+            <li>Improve our website and services</li>
+            <li>Send marketing and informational emails (with your consent)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Data Protection</h2>
+          <p>
+            SecurePride implements comprehensive security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. Our systems use industry-standard encryption and secure data storage practices.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Your Privacy Rights</h2>
+          <p>Depending on your location, you may have the right to:</p>
+          <ul class="list-disc list-inside space-y-2 mt-4">
+            <li>Access the personal data we hold about you</li>
+            <li>Request correction of inaccurate data</li>
+            <li>Request deletion of your data</li>
+            <li>Opt out of certain data processing activities</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Contact Us</h2>
+          <p>If you have any questions about this Privacy Policy or our privacy practices, please contact us at:</p>
+          <p class="mt-4">
+            <strong>Email:</strong>{' '}
+            <a href="mailto:privacy@securepride.org" class="text-neon-cyan hover:underline">
+              privacy@securepride.org
+            </a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import DemoDashboard from '../components/DemoDashboard.astro';
+import Problem from '../components/Problem.astro';
+import WhatWeDo from '../components/WhatWeDo.astro';
+import Pricing from '../components/Pricing.astro';
+import Credibility from '../components/Credibility.astro';
+import FinalCta from '../components/FinalCta.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Secure Pride — Cybersecurity for LGBTQ+ Organizations"
+  description="Open-source AI security scanner built for community organizations. Detect prompt injections, mask sensitive data, and monitor protection status—in plain language."
+  canonicalUrl="https://securepride.org/"
+>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <DemoDashboard />
+    <Problem />
+    <WhatWeDo />
+    <Pricing />
+    <Credibility />
+    <FinalCta />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>

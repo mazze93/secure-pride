@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="404 - Page Not Found | SecurePride" noindex={true}>
+  <Header />
+
+  <main id="main-content" class="flex min-h-screen flex-col items-center justify-center bg-dark-bg">
+    <div class="text-center px-4">
+      <h1 class="font-display text-9xl font-bold bg-gradient-to-r from-neon-pink via-neon-violet to-neon-cyan bg-clip-text text-transparent">
+        404
+      </h1>
+      <h2 class="mb-4 font-heading text-3xl sm:text-4xl font-bold text-text-primary">
+        Page Not Found
+      </h2>
+      <p class="mb-8 text-lg text-text-secondary max-w-md">
+        We couldn't find the page you're looking for. It might have been moved or deleted.
+      </p>
+      <a
+        href="/"
+        class="inline-block rounded-lg bg-neon-cyan px-8 py-3 font-heading font-bold text-dark-bg transition-all duration-250 hover:shadow-glow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan"
+      >
+        Back to Home
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

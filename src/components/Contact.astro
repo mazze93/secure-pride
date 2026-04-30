@@ -1,0 +1,108 @@
+---
+import ContactForm from './ContactForm';
+---
+
+<section id="get-involved" class="relative py-20 sm:py-32 bg-dark-bg">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="mb-16 text-center">
+      <div class="mb-4 inline-block border-l-4 border-neon-cyan pl-4">
+        <p class="text-neon-cyan font-display text-sm font-bold uppercase tracking-wider">Get Involved</p>
+      </div>
+      <h2 class="mb-6 font-display text-4xl sm:text-5xl font-bold text-text-primary">
+        Let&#x2019;s Build Something Together
+      </h2>
+      <p class="mx-auto max-w-2xl text-xl text-text-secondary">
+        Have questions? Ready to get started? Drop us a line and we&#x2019;ll be in touch.
+      </p>
+    </div>
+
+    <!-- Content Grid -->
+    <div class="grid gap-12 lg:grid-cols-2">
+      <!-- Left Column: Contact Info -->
+      <div>
+        <h3 class="mb-6 font-heading text-2xl font-bold text-text-primary">
+          Multiple Ways to Connect
+        </h3>
+
+        <div class="space-y-6">
+          <!-- Documentation -->
+          <div>
+            <h4 class="mb-2 font-heading font-bold text-neon-cyan">Start with the Docs</h4>
+            <p class="mb-3 text-text-secondary">
+              Our comprehensive documentation covers installation, configuration, and best practices.
+            </p>
+            <a
+              href="https://docs.securepride.org"
+              class="inline-flex items-center gap-2 text-neon-cyan transition-all duration-250 hover:text-neon-cyan hover:translate-x-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan"
+            >
+              Read the Docs
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- GitHub -->
+          <div>
+            <h4 class="mb-2 font-heading font-bold text-neon-cyan">Check Out the Code</h4>
+            <p class="mb-3 text-text-secondary">
+              All our code is open-source. Contribute, fork, or learn from our repository.
+            </p>
+            <a
+              href="https://github.com/securepride"
+              class="inline-flex items-center gap-2 text-neon-cyan transition-all duration-250 hover:text-neon-cyan hover:translate-x-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan"
+            >
+              View on GitHub
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Security -->
+          <div>
+            <h4 class="mb-2 font-heading font-bold text-neon-cyan">Report a Vulnerability</h4>
+            <p class="mb-3 text-text-secondary">
+              Found a security issue? Please report it responsibly following our vulnerability disclosure policy.
+            </p>
+            <a
+              href="/security"
+              class="inline-flex items-center gap-2 text-neon-cyan transition-all duration-250 hover:text-neon-cyan hover:translate-x-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan"
+            >
+              Security Policy
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Privacy -->
+          <div>
+            <h4 class="mb-2 font-heading font-bold text-neon-cyan">Privacy Matters</h4>
+            <p class="mb-3 text-text-secondary">
+              We&#x2019;re committed to protecting your data. Review our privacy policy.
+            </p>
+            <a
+              href="/privacy"
+              class="inline-flex items-center gap-2 text-neon-cyan transition-all duration-250 hover:text-neon-cyan hover:translate-x-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-neon-cyan"
+            >
+              Privacy Policy
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Contact Form -->
+      <div class="rounded-lg border border-dark-border bg-dark-surface p-8">
+        <h3 class="mb-6 font-heading text-2xl font-bold text-text-primary">
+          Send us a Message
+        </h3>
+        <ContactForm client:load />
+      </div>
+    </div>
+  </div>
+</section>

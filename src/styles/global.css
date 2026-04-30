@@ -1,0 +1,169 @@
+/* Self-hosted fonts — no Google tracking */
+@import '@fontsource/orbitron/400.css';
+@import '@fontsource/orbitron/700.css';
+@import '@fontsource/orbitron/900.css';
+@import '@fontsource/rajdhani/400.css';
+@import '@fontsource/rajdhani/500.css';
+@import '@fontsource/rajdhani/600.css';
+@import '@fontsource/rajdhani/700.css';
+@import '@fontsource/source-sans-3/400.css';
+@import '@fontsource/source-sans-3/600.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-neon-pink: #ff2d95;
+  --color-neon-cyan: #06d6e0;
+  --color-neon-violet: #b24bf3;
+  --color-brand-primary: #0a7e74;
+  --color-brand-electric: #06d6e0;
+  --color-dark-bg: #0a0a1a;
+  --color-dark-surface: #111128;
+  --color-text-primary: #eeeef6;
+  --color-text-secondary: #9898b8;
+  --font-display: "Orbitron", "Rajdhani", sans-serif;
+  --font-heading: "Rajdhani", "DM Sans", sans-serif;
+  --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Monaco", monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.625;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-neon-cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 3px solid var(--color-neon-cyan);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: var(--color-text-primary);
+}
+
+h1 { font-size: 3.5rem; line-height: 3.75rem; }
+h2 { font-size: 2rem; line-height: 2.5rem; }
+h3 { font-size: 1.5rem; line-height: 2rem; }
+
+a {
+  color: var(--color-neon-cyan);
+  text-decoration: none;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover { text-shadow: 0 0 10px rgba(6, 214, 224, 0.5); }
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  background-color: rgba(17, 17, 40, 0.8);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  color: var(--color-neon-cyan);
+}
+
+pre {
+  background-color: var(--color-dark-surface);
+  border: 1px solid rgba(42, 42, 80, 0.5);
+  border-radius: 8px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+pre code { background: none; padding: 0; border-radius: 0; color: inherit; }
+
+ul, ol { margin: 1rem 0; padding-left: 1.5rem; }
+li { margin: 0.5rem 0; }
+
+.skip-to-content {
+  position: absolute;
+  top: -9999px;
+  left: 0;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-neon-cyan);
+  color: var(--color-dark-bg);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-to-content:focus { top: 0; outline: none; border-radius: 0; }
+
+/* ─── NOISE TEXTURE ────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* ─── ANIMATIONS ───────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #06d6e0; }
+  50%       { opacity: 0.6; box-shadow: 0 0 16px #06d6e0; }
+}
+
+/* ─── SCROLL REVEAL ────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+@media print {
+  html { background: #fff; }
+  body { background: #fff; color: #000; }
+  a { color: #000; text-decoration: underline; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

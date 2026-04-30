@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Security Policy - SecurePride"
+  description="SecurePride security and vulnerability disclosure policy."
+  canonicalUrl="https://securepride.org/security/"
+>
+  <Header />
+
+  <main id="main-content" class="min-h-screen">
+    <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
+      <h1 class="mb-4 font-display text-4xl sm:text-5xl font-bold text-text-primary">
+        Security Policy
+      </h1>
+      <p class="mb-8 text-text-secondary">Last updated: March 31, 2026</p>
+
+      <div class="prose prose-invert max-w-none space-y-8 text-text-secondary">
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Vulnerability Reporting</h2>
+          <p>
+            SecurePride takes security vulnerabilities seriously. If you discover a security vulnerability, please report it responsibly to{' '}
+            <a href="mailto:security@securepride.org" class="text-neon-cyan hover:underline">
+              security@securepride.org
+            </a>{' '}
+            rather than disclosing it publicly.
+          </p>
+          <p class="mt-4 rounded-lg bg-dark-surface p-4 text-sm">
+            <strong>Note:</strong> This is a template security policy. You must customize this document to reflect SecurePride's actual security practices, including specific vulnerability disclosure procedures, response timelines, and any bug bounty program details. Consult with your security team to ensure this policy aligns with your organization's practices.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Responsible Disclosure</h2>
+          <p>When reporting a vulnerability, please include:</p>
+          <ul class="list-disc list-inside space-y-2 mt-4">
+            <li>A clear description of the vulnerability</li>
+            <li>Steps to reproduce the issue</li>
+            <li>Potential impact assessment</li>
+            <li>Your contact information for follow-up</li>
+          </ul>
+          <p class="mt-4">
+            We commit to acknowledging your report within 48 hours and providing a timeline for resolution.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Scope</h2>
+          <p>This security policy covers all SecurePride systems, including but not limited to:</p>
+          <ul class="list-disc list-inside space-y-2 mt-4">
+            <li>securepride.org website and subdomains</li>
+            <li>SecurePride platform infrastructure</li>
+            <li>Official SecurePride applications</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Out of Scope</h2>
+          <p>The following are explicitly out of scope for vulnerability reports:</p>
+          <ul class="list-disc list-inside space-y-2 mt-4">
+            <li>Third-party services and platforms</li>
+            <li>Social engineering attacks</li>
+            <li>Attacks requiring physical access</li>
+            <li>Vulnerabilities in dependencies without a clear SecurePride impact</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Bug Bounty Program</h2>
+          <p>
+            SecurePride values the contributions of security researchers. While we do not currently offer a formal bug bounty program, we recognize and credit all responsible vulnerability disclosures. Researchers who discover and responsibly report vulnerabilities may be acknowledged in our Hall of Honor.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Security Contact</h2>
+          <p>For all security matters, contact:</p>
+          <p class="mt-4">
+            <strong>Email:</strong>{' '}
+            <a href="mailto:security@securepride.org" class="text-neon-cyan hover:underline">
+              security@securepride.org
+            </a>
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

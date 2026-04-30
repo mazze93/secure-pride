@@ -1,0 +1,152 @@
+---
+---
+
+<!-- Product section -->
+<section
+  id="what-we-do"
+  class="relative z-10 py-24 bg-dark-surface"
+  aria-labelledby="product-headline"
+>
+  <div class="mx-auto max-w-[1120px] px-6">
+    <header class="mb-16 max-w-[680px]">
+      <p class="reveal mb-4 font-mono text-[0.72rem] font-medium uppercase tracking-[0.2em] text-brand-electric opacity-80">
+        How it protects you
+      </p>
+      <h2 class="reveal reveal-delay-1 font-heading text-[clamp(1.8rem,3.5vw,2.75rem)] font-bold leading-[1.15] text-text-primary" id="product-headline">
+        Protection that understands what you're protecting.
+      </h2>
+      <p class="reveal reveal-delay-2 mt-5 text-[1.1rem] leading-[1.7] text-text-secondary max-w-[600px]">
+        Secure Pride monitors your AI-powered tools for prompt injection attacks,
+        sensitive data exposure, and credential leaks—in real time, with
+        plain-language reporting.
+      </p>
+    </header>
+
+    <!-- Feature Cards -->
+    <div class="grid gap-6 md:grid-cols-3">
+
+      <!-- Card 1: Scan & Detect -->
+      <article
+        class="relative overflow-hidden rounded-xl border border-dark-border bg-dark-elevated p-8 transition-all duration-250 hover:border-dark-borderGlow hover:-translate-y-[3px] reveal"
+        aria-labelledby="feat1-headline"
+      >
+        <div class="absolute top-0 left-0 right-0 h-[2px] opacity-0 transition-opacity duration-250 hover-line"
+          style="background: linear-gradient(90deg, #06d6e0, #448aff);"></div>
+        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-neon-cyan/10 text-xl text-brand-electric">
+          ⬡
+        </div>
+        <h3 class="mb-3 font-heading text-[1.2rem] font-bold tracking-[0.02em] text-text-primary" id="feat1-headline">
+          Scan &amp; detect
+        </h3>
+        <p class="text-[0.95rem] leading-[1.7] text-text-secondary">
+          Every AI conversation is scanned for eight types of prompt injection
+          attacks and eight categories of sensitive data—from email addresses to
+          API keys. Threats are caught before they reach your AI provider.
+        </p>
+      </article>
+
+      <!-- Card 2: Analyze & Protect -->
+      <article
+        class="relative overflow-hidden rounded-xl border border-dark-border bg-dark-elevated p-8 transition-all duration-250 hover:border-dark-borderGlow hover:-translate-y-[3px] reveal reveal-delay-1"
+        aria-labelledby="feat2-headline"
+      >
+        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl text-xl"
+          style="background: rgba(178,75,243,0.12); color: #b24bf3;">
+          ◈
+        </div>
+        <h3 class="mb-3 font-heading text-[1.2rem] font-bold tracking-[0.02em] text-text-primary" id="feat2-headline">
+          Analyze &amp; protect
+        </h3>
+        <p class="text-[0.95rem] leading-[1.7] text-text-secondary">
+          Sensitive information is automatically masked in real time. Names, phone
+          numbers, credentials, and health data are redacted before they leave your
+          network. Original data is never stored.
+        </p>
+      </article>
+
+      <!-- Card 3: Report & Empower -->
+      <article
+        class="relative overflow-hidden rounded-xl border border-dark-border bg-dark-elevated p-8 transition-all duration-250 hover:border-dark-borderGlow hover:-translate-y-[3px] reveal reveal-delay-2"
+        aria-labelledby="feat3-headline"
+      >
+        <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl text-xl"
+          style="background: rgba(0,230,118,0.12); color: #00e676;">
+          ◎
+        </div>
+        <h3 class="mb-3 font-heading text-[1.2rem] font-bold tracking-[0.02em] text-text-primary" id="feat3-headline">
+          Report &amp; empower
+        </h3>
+        <p class="text-[0.95rem] leading-[1.7] text-text-secondary">
+          Your dashboard shows protection status at a glance—not a wall of alerts.
+          See what was caught, what was blocked, and what needs your attention,
+          in language that respects your time.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works section -->
+<section
+  id="how"
+  class="relative z-10 py-24"
+  style="background: linear-gradient(180deg, #111128 0%, #0a0a1a 100%);"
+  aria-labelledby="how-headline"
+>
+  <div class="mx-auto max-w-[1120px] px-6">
+    <p class="reveal mb-4 font-mono text-[0.72rem] font-medium uppercase tracking-[0.2em] text-brand-electric opacity-80">
+      Setup
+    </p>
+    <h2 class="reveal reveal-delay-1 font-heading text-[clamp(1.8rem,3.5vw,2.75rem)] font-bold leading-[1.15] text-text-primary" id="how-headline">
+      Up and running in under five minutes.
+    </h2>
+
+    <ol class="relative mt-14 grid gap-8 md:grid-cols-3" aria-label="Setup steps">
+      <!-- Connector line (desktop only) -->
+      <div
+        class="absolute hidden md:block top-7 h-[1px] opacity-30 pointer-events-none"
+        style="left: calc(16.67% + 1rem); right: calc(16.67% + 1rem); background: linear-gradient(90deg, #06d6e0, #b24bf3, #ff2d95);"
+        aria-hidden="true"
+      ></div>
+
+      <li class="step relative reveal">
+        <div class="relative z-10 mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-dark-borderGlow bg-dark-elevated font-display text-base font-bold text-brand-electric">
+          01
+        </div>
+        <h3 class="mb-2 font-heading text-base font-bold uppercase tracking-[0.08em] text-text-primary">
+          Deploy the scanner
+        </h3>
+        <p class="text-[0.95rem] leading-[1.65] text-text-secondary">
+          One <span class="font-mono text-brand-electric text-[0.85em]">Docker command.</span> Self-hosted on your infrastructure.
+          Your data never touches our servers.
+        </p>
+      </li>
+
+      <li class="step relative reveal reveal-delay-1">
+        <div class="relative z-10 mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-dark-borderGlow bg-dark-elevated font-display text-base font-bold text-brand-electric">
+          02
+        </div>
+        <h3 class="mb-2 font-heading text-base font-bold uppercase tracking-[0.08em] text-text-primary">
+          Connect your AI tools
+        </h3>
+        <p class="text-[0.95rem] leading-[1.65] text-text-secondary">
+          Point your LLM traffic through Secure Pride. Works with any provider:
+          <span class="font-mono text-brand-electric text-[0.85em]">OpenAI, Anthropic, Google,</span> local models.
+        </p>
+      </li>
+
+      <li class="step relative reveal reveal-delay-2">
+        <div class="relative z-10 mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-dark-borderGlow bg-dark-elevated font-display text-base font-bold text-brand-electric">
+          03
+        </div>
+        <h3 class="mb-2 font-heading text-base font-bold uppercase tracking-[0.08em] text-text-primary">
+          See your protection status
+        </h3>
+        <p class="text-[0.95rem] leading-[1.65] text-text-secondary">
+          Open the dashboard. Your organization's security posture is visible
+          immediately. No configuration, no training, no certification required.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
