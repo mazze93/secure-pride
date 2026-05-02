@@ -4,3 +4,5 @@
 *.jam
 .superpowers/
 lighthouse-report.json
+node_modules/
+.wrangler/
