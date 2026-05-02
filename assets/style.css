@@ -478,3 +478,102 @@ main {
     .gauge-value-number { font-size: 26px; }
     .header-title { font-size: 17px; }
 }
+
+/* ─── Scan input area ────────────────────────── */
+.scan-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.scan-input-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    line-height: 1.5;
+}
+
+.scan-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color var(--motion-base), box-shadow var(--motion-base);
+}
+
+.scan-textarea:focus {
+    outline: none;
+    border-color: rgba(6,214,224,0.5);
+    box-shadow: 0 0 0 3px rgba(6,214,224,0.08);
+}
+
+.scan-textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.scan-input-hint {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+}
+
+/* ─── Audit action row ───────────────────────── */
+.audit-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.audit-actions .btn-support {
+    flex: 1;
+    margin-top: 0;
+}
+
+.btn-clear {
+    padding: 9px 16px;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--motion-base);
+    white-space: nowrap;
+}
+
+.btn-clear:hover {
+    border-color: var(--border-glow);
+    color: var(--text-secondary);
+}
+
+.btn-support:disabled,
+.btn-clear:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ─── Blocked banner ─────────────────────────── */
+.scan-blocked-banner {
+    background: rgba(255,45,149,0.1);
+    border: 1px solid rgba(255,45,149,0.4);
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: var(--pink);
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 10px rgba(255,45,149,0.3);
+}
