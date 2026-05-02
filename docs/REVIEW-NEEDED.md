@@ -22,9 +22,10 @@ These files were **untracked from git** on 2026-05-02 (branch `chore/repo-hygien
 
 ## CI / Infrastructure Bundles
 
-### `dockerhub-token-ci-pack.zip`
-**Why untracked:** Name implies CI credentials. Even if the actual token is not inside, zipped CI packs can expose workflow patterns that aid attackers.  
-**Action:** Unzip and inspect. If a Docker Hub token or any API key is present, **revoke it immediately** at hub.docker.com → Account Settings → Security. Replace with a CI secret variable (GitHub Actions `secrets.DOCKERHUB_TOKEN`).
+### `dockerhub-token-ci-pack.zip` ✅ RESOLVED
+**Reviewed 2026-05-02:** Zip contained only template scripts — **no live credentials found.** Nothing to revoke.  
+**Done:** Workflow implemented in `.github/workflows/release.yml`, scripts in `bin/`, playbook in `docs/DOCKERHUB_TOKEN_WORKFLOW.md`. Safe to delete the zip from disk.  
+**Action:** `rm dockerhub-token-ci-pack.zip` — then follow `docs/DOCKERHUB_TOKEN_WORKFLOW.md` to create a real PAT and set it as a GitHub secret.
 
 ---
 
