@@ -1,11 +1,9 @@
 # macOS
 .DS_Store
 **/.DS_Store
-Thumbs.db
 
 # Editor / tooling
 .vscode/
-.idea/
 .claude/
 *.jam
 *.swp
@@ -13,16 +11,10 @@ Thumbs.db
 *~
 .superpowers/
 
-# Environment variables
-.env
-.env.local
-.env.*.local
-
 # Build artefacts & caches
 node_modules/
 .wrangler/
 dist/
-.astro/
 .cache/
 
 # Reports & generated output
@@ -32,10 +24,6 @@ lighthouse-report.json
 *.zip
 *.tar.gz
 *.tar.bz2
-
-# Package manager locks (committed per project preference — remove if you pin lockfiles)
-yarn.lock
-pnpm-lock.yaml
 
 # Sensitive docs — store in a secrets manager or encrypted vault, not git
 docs/*.pdf
