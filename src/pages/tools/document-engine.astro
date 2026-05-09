@@ -1,0 +1,10 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import DocEngine from '../../components/tools/securepride-document-engine.jsx';
+---
+<ToolLayout
+  title="Document Engine — Secure Pride"
+  description="Create branded, print-ready Secure Pride documents. No tracking. No external requests."
+>
+  <DocEngine client:only="react" />
+</ToolLayout>

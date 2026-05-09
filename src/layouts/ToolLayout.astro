@@ -1,0 +1,81 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <style>
+      /* Self-hosted fonts — served from /assets/fonts/ */
+      @font-face {
+        font-family: 'Rajdhani';
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+        src: url('/assets/fonts/rajdhani-600-latin.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Rajdhani';
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+        src: url('/assets/fonts/rajdhani-700-latin.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+        src: url('/assets/fonts/inter-latin.woff2') format('woff2');
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; }
+      html, body { height: 100%; }
+      body { font-family: 'Inter', system-ui, sans-serif; }
+
+      /* Print styles for document engine */
+      @media print {
+        body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        .no-print { display: none !important; }
+        .page-break { page-break-before: always; }
+        .avoid-break { page-break-inside: avoid; }
+        @page { margin: 0.75in 0.75in 0.6in 0.75in; size: letter; }
+        .doc-preview { box-shadow: none !important; border: none !important; padding: 0 !important; max-width: 100% !important; }
+        .editor-panel { display: none !important; }
+        .preview-wrapper { width: 100% !important; padding: 0 !important; }
+      }
+
+      /* Skip link for accessibility */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 1rem;
+        z-index: 9999;
+        padding: 0.5rem 1rem;
+        background: #0a0a1a;
+        color: #06d6e0;
+        border: 1px solid rgba(6, 214, 224, 0.4);
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      .skip-link:focus { top: 1rem; }
+    </style>
+  </head>
+  <body>
+    <a href="#tool-root" class="skip-link">Skip to tool</a>
+    <div id="tool-root" tabindex="-1">
+      <slot />
+    </div>
+  </body>
+</html>
