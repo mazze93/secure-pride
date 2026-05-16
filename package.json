@@ -16,7 +16,7 @@
     "@fontsource/orbitron": "^5.2.8",
     "@fontsource/rajdhani": "^5.2.7",
     "@fontsource/source-sans-3": "^5.2.9",
-    "astro": "^6.1.8",
+    "astro": "^6.1.10",
     "autoprefixer": "^10.4.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
