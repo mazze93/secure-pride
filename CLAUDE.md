@@ -24,8 +24,14 @@
 - Sans-serif fonts, line-height 1.5–2.0, 2 clicks max from main page
 - Short sentences (8–15 words), chunked text, descriptive headings
 
+## Commands
+```bash
+npm run dev      # Astro dev server
+npm run build    # Static build → dist/
+npm run check    # Astro build + tsc validation (run before commit)
+```
+
 ## Project State
 - **Hosting**: Cloudflare Pages + DNS — domain: securepride.org
-- **Repo**: `mazze93/Secure-Pride` / local: `/Users/daedalus/Code/secure-pride`
-- **Outstanding**: `_headers`, `_redirects` files not yet created; Cloudflare Pages not configured
-- **Hardware**: MacBook Pro M3 8GB RAM — avoid memory-heavy tooling
+- **Repo**: `mazze93/Secure-Pride` / canonical local: `/Users/daedalus/Code/secure-pride/secure-pride-site` (Praxis Workspace Atlas — Security Mode)
+- **Cloudflare**: `_headers` and `_redirects` exist; Pages deployment status — verify in dashboard.
