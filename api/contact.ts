@@ -23,13 +23,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(429).json({ error: 'Too many submissions. Please try again later.' });
   }
 
-  const { name, email, organization, message } = req.body ?? {};
+const { name, email, organization, message } = req.body ?? {};
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'Missing required fields.' });
-  }
-
-// 1. Type Check: Ensure all required fields are actual strings
+  // 1. Type Check: Ensure all required fields are actual strings
   if (
     typeof name !== 'string' || 
     typeof email !== 'string' || 
