@@ -29,11 +29,25 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Missing required fields.' });
   }
 
-  // Basic email format check
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return res.status(400).json({ error: 'Invalid email address.' });
+// 1. Type Check: Ensure all required fields are actual strings
+  if (
+    typeof name !== 'string' || 
+    typeof email !== 'string' || 
+    typeof message !== 'string'
+  ) {
+    return res.status(400).json({ error: 'Invalid input types.' });
   }
 
+  // 2. Presence Check: Ensure they aren't just empty spaces
+  if (!name.trim() || !email.trim() || !message.trim()) {
+    return res.status(400).json({ error: 'Missing required fields.' });
+  }
+
+  // 3. Optimized Regex Format Check (Prevents Polynomial ReDoS)
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: 'Invalid email address.' });
+  }
   // Field length limits
   if (name.length > 100 || email.length > 254 || message.length > 5000) {
     return res.status(400).json({ error: 'Input exceeds allowed length.' });
