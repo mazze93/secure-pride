@@ -30,6 +30,6 @@
     "@types/react": "^18.2.45",
     "@vercel/node": "^5.7.13",
     "typescript": "^5.4.5",
-    "vitest": "^2.0.0"
+    "vitest": "^4.1.0"
   }
 }
