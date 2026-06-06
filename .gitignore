@@ -4,7 +4,8 @@
 
 # Editor / tooling
 .vscode/
-.claude/
+.claude/settings.local.json
+.claude/launch.json
 *.jam
 *.swp
 *.swo
