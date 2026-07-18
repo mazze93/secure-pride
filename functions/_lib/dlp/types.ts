@@ -55,3 +55,23 @@ export interface ScanResult {
   policyViolations: string[];
   classificationsFound: DataClassification[];
 }
+
+/**
+ * Structured audit entry for a single DLP scan. Schema (including snake_case
+ * field names) matches the original Python AuditLogger's JSON output, so any
+ * downstream log ingestion built for that version keeps working unchanged.
+ * Never contains raw actor identity, raw scanned text, or raw PII values.
+ */
+export interface AuditEntry {
+  trace_id: string;
+  timestamp: string;
+  actor_hash: string;
+  action: "dlp_scan";
+  classifications_found: DataClassification[];
+  injection_detected: boolean;
+  max_severity: Severity | null;
+  policy_action: ScanAction;
+  pii_types_found: string[];
+  input_length: number;
+  blocked: boolean;
+}
