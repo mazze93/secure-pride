@@ -9,6 +9,7 @@ import {
 } from "./types.js";
 import { detectInjections, getMaxSeverity } from "./patterns.js";
 import { detectPII, maskText } from "./pii.js";
+import { logScan } from "./audit.js";
 
 const MAX_INPUT_LENGTH = 50_000;
 
@@ -87,14 +88,18 @@ function blockedResult(traceId: string, reason: string): ScanResult {
   };
 }
 
-export function scan(
+export async function scan(
   text: string,
-  _actorId = "anonymous",
-  policies = DEFAULT_POLICIES
-): ScanResult {
+  actorId = "anonymous",
+  policies = DEFAULT_POLICIES,
+  auditSalt?: string
+): Promise<ScanResult> {
   const traceId = crypto.randomUUID();
   const policyMap = buildPolicyMap(policies);
 
+  // Size guard short-circuits before the audit log, matching the original
+  // design — an oversized payload never reaches the pipeline that produces
+  // the fields an audit entry needs.
   if (text.length > MAX_INPUT_LENGTH) {
     return blockedResult(
       traceId,
@@ -119,9 +124,25 @@ export function scan(
   const maskedText =
     action === ScanAction.MASK_AND_ALLOW ? maskText(text)[0] : null;
 
+  const blocked = action === ScanAction.BLOCK;
+
+  // Audit log — always, for every scan that reaches this point, clean or not.
+  await logScan({
+    traceId,
+    actorId,
+    classificationsFound,
+    injectionDetected: injectionMatches.length > 0,
+    maxSeverity,
+    policyAction: action,
+    piiTypesFound: piiMatches.map((m) => m.piiType),
+    inputLength: text.length,
+    blocked,
+    salt: auditSalt,
+  });
+
   return {
     traceId,
-    blocked: action === ScanAction.BLOCK,
+    blocked,
     actionTaken: action,
     maskedText,
     injectionMatches,

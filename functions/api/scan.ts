@@ -6,7 +6,11 @@ interface ScanRequestBody {
   actor_id?: unknown;
 }
 
-export const onRequestPost: PagesFunction = async (context) => {
+interface Env {
+  SP_AUDIT_SALT?: string;
+}
+
+export const onRequestPost: PagesFunction<Env> = async (context) => {
   let body: ScanRequestBody;
 
   try {
@@ -36,7 +40,7 @@ export const onRequestPost: PagesFunction = async (context) => {
 
   const actorId =
     typeof body.actor_id === "string" ? body.actor_id : "anonymous";
-  const result = scan(body.text, actorId);
+  const result = await scan(body.text, actorId, undefined, context.env.SP_AUDIT_SALT);
 
   return Response.json({
     trace_id: result.traceId,
