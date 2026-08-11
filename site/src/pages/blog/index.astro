@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/blog/BlogCard.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog | Secure Pride"
+  description="Security education, community resilience, and practical hardening guides from Secure Pride."
+>
+  <main class="blog-index">
+    <header class="wrap header">
+      <h1>Blog</h1>
+      <p class="lede">
+        Security education, community resilience, and practical hardening guides.
+      </p>
+    </header>
+
+    {posts.length === 0 ? (
+      <div class="wrap">
+        <p>No posts published yet. Check back soon.</p>
+      </div>
+    ) : (
+      <section class="wrap grid" aria-label="Blog posts">
+        {posts.map((entry) => <BlogCard entry={entry} />)}
+      </section>
+    )}
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-index {
+    padding: 3.25rem 0 5rem;
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+  }
+
+  .lede {
+    max-width: 60ch;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

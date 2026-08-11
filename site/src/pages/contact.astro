@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteCTA from "../components/shared/SiteCTA.astro";
+---
+
+<BaseLayout title="Contact | Secure Pride" description="Request a guided review or reach Secure Pride for audit support.">
+  <main class="page">
+    <header class="wrap header">
+      <h1>Contact</h1>
+      <p class="lede">
+        Tell us what you’re protecting and what constraints you’re working under. We’ll respond with next steps.
+      </p>
+    </header>
+
+    <section class="wrap grid" aria-label="Contact options">
+      <article class="card">
+        <h2>Request a guided review</h2>
+        <p>
+          Use your existing form system (or add one) and collect only what you need.
+        </p>
+        <ul>
+          <li>Primary domain</li>
+          <li>DNS provider + hosting stack</li>
+          <li>Email provider</li>
+          <li>Time sensitivity (normal / urgent)</li>
+        </ul>
+        <p class="hint">
+          Placeholder: wire this to your existing securepride.org contact form route or embed your form component here.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Security contact</h2>
+        <p>
+          For responsible disclosure, use the security contact channel.
+        </p>
+        <p class="hint">
+          Placeholder: link to your <code>security.txt</code> and disclosure policy once published.
+        </p>
+      </article>
+    </section>
+
+    <section class="wrap">
+      <h2>What to expect</h2>
+      <ol>
+        <li>We confirm scope and urgency.</li>
+        <li>We run a surface audit and share prioritized findings.</li>
+        <li>We align on remediation ownership and cadence.</li>
+      </ol>
+    </section>
+
+    <SiteCTA
+      variant="footer"
+      headline="Prefer to start solo?"
+      subhead="Run the self-guided path first; bring the report if you want a second set of eyes."
+      primaryHref="/get-started"
+      primaryLabel="Get started"
+      secondaryHref="/audit-toolkit"
+      secondaryLabel="Toolkit overview"
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .page { padding: 3.25rem 0 4rem; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .header { margin-bottom: 1.5rem; }
+  .lede { max-width: 70ch; opacity: 0.9; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .card { border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; padding: 1.25rem; background: rgba(255,255,255,0.03); }
+  .hint { opacity: 0.85; font-size: 0.95rem; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+</style>

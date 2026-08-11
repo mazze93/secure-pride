@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteCTA from "../components/shared/SiteCTA.astro";
+---
+
+<BaseLayout title="Get started | Secure Pride" description="Run the Secure Pride Audit Toolkit self-guided, or prepare for a guided review.">
+  <main class="page">
+    <header class="wrap header">
+      <h1>Get started</h1>
+      <p class="lede">
+        Choose the path that matches your capacity today. The goal is the same: reduce exposure, document fixes, and establish a repeatable cadence.
+      </p>
+    </header>
+
+    <section class="wrap grid" aria-label="Get started options">
+      <article class="card">
+        <h2>Self-guided audit</h2>
+        <p>
+          Run the toolkit locally, generate a report, and apply fixes on your timeline.
+        </p>
+        <ol>
+          <li>Collect your domain + DNS provider details.</li>
+          <li>Run the audit checks (CLI or checklist).</li>
+          <li>Apply the highest-impact remediations first.</li>
+          <li>Re-run the audit to verify improvements.</li>
+        </ol>
+        <p class="hint">
+          Next: replace this placeholder with the actual CLI instructions and a “Download / Run” button once the repo packaging is ready.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Prepare for a guided review</h2>
+        <p>
+          If you’d rather not do this alone, we’ll walk through findings and help you prioritize fixes.
+        </p>
+        <ul>
+          <li>Domain + DNS provider (Cloudflare, etc.)</li>
+          <li>Email provider (Google Workspace, Proton, iCloud, etc.)</li>
+          <li>Hosting stack (Cloudflare Pages, GitHub Pages, etc.)</li>
+          <li>Any known incidents or concerns</li>
+        </ul>
+        <p class="hint">
+          Head to <a href="/contact">Contact</a> to request a review.
+        </p>
+      </article>
+    </section>
+
+    <section class="wrap">
+      <h2>What you’ll get</h2>
+      <ul class="bullets">
+        <li>Findings report with severity tiers</li>
+        <li>Remediation checklist with clear steps</li>
+        <li>Configuration templates (DNS, TLS, email auth, CSP)</li>
+        <li>Roadmap ranked by impact → effort</li>
+      </ul>
+    </section>
+
+    <SiteCTA
+      variant="footer"
+      headline="Start the audit."
+      subhead="Self-guided or guided—either way, you’ll leave with a concrete hardening plan."
+      primaryHref="/audit-toolkit"
+      primaryLabel="What’s included"
+      secondaryHref="/contact"
+      secondaryLabel="Request a guided review"
+    />
+  </main>
+</BaseLayout>
+
+<style>
+  .page { padding: 3.25rem 0 4rem; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .header { margin-bottom: 1.5rem; }
+  .lede { max-width: 70ch; opacity: 0.9; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .card { border: 1px solid rgba(255,255,255,0.12); border-radius: 18px; padding: 1.25rem; background: rgba(255,255,255,0.03); }
+  .hint { opacity: 0.85; font-size: 0.95rem; }
+  .bullets { display: grid; gap: 0.5rem; }
+  a { text-decoration: underline; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+</style>

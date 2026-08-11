@@ -1,0 +1,28 @@
+---
+const { headline, subhead, primaryCtaHref, primaryCtaLabel, secondaryCtaHref, secondaryCtaLabel, note } = Astro.props;
+---
+
+<section class="finalcta" aria-labelledby="finalcta-title">
+  <div class="wrap">
+    <h2 id="finalcta-title">{headline}</h2>
+    <p class="lede">{subhead}</p>
+
+    <div class="ctas">
+      <a class="btn btn--primary" href={primaryCtaHref}>{primaryCtaLabel}</a>
+      <a class="btn btn--secondary" href={secondaryCtaHref}>{secondaryCtaLabel}</a>
+    </div>
+
+    <p class="note">{note}</p>
+  </div>
+</section>
+
+<style>
+  .finalcta { padding: 4rem 0; border-top: 1px solid rgba(255,255,255,0.10); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+  .lede { max-width: 70ch; opacity: 0.9; }
+  .ctas { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+  .note { margin-top: 1rem; opacity: 0.8; font-size: 0.95rem; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; padding: 0.75rem 1rem; border-radius: 14px; text-decoration: none; font-weight: 600; }
+  .btn--primary { background: rgba(22,224,245,0.15); border: 1px solid rgba(22,224,245,0.35); }
+  .btn--secondary { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); }
+</style>
