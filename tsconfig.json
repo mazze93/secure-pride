@@ -1,8 +1,13 @@
 {
-  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "jsxImportSource": "react",
-    "types": ["@cloudflare/workers-types"]
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "types": ["@cloudflare/workers-types"],
+    "lib": ["ES2022"],
+    "noEmit": true,
+    "skipLibCheck": true
   },
-  "include": ["src", "functions"]
+  "include": ["functions/**/*.ts"]
 }

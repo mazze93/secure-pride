@@ -1,35 +1,31 @@
-# macOS
-.DS_Store
-**/.DS_Store
-
-# Editor / tooling
-.vscode/
-.claude/settings.local.json
-.claude/launch.json
-*.jam
-*.swp
-*.swo
-*~
-.superpowers/
-
-# Build artefacts & caches
-node_modules/
-.wrangler/
-dist/
-.cache/
-.astro/
-
-# Reports & generated output
-lighthouse-report.json
 
 # Archives — review locally before re-adding
-*.zip
-*.tar.gz
-*.tar.bz2
-
+# Build artefacts & caches
+# Editor / tooling
+# Reports & generated output
 # Sensitive docs — store in a secrets manager or encrypted vault, not git
+# Staging inbox — clear after importing, never commit
+# macOS
+**/.DS_Store
+*.jam
+*.swo
+*.swp
+*.tar.bz2
+*.tar.gz
+*.zip
+*/.DS_Store
+*~
+.DS_Store
+.astro/
+.cache/
+.claude/launch.json
+.claude/settings.local.json
+.superpowers/
+.vscode/
+.wrangler/
+assets/incoming-*/
+dist/
 docs/*.pdf
 docs/brand/*.docx
-
-# Staging inbox — clear after importing, never commit
-assets/incoming-*/
+lighthouse-report.json
+node_modules/
