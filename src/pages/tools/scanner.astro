@@ -1,0 +1,10 @@
+---
+import ToolLayout from '../../layouts/ToolLayout.astro';
+import AISafetyScanner from '../../components/tools/AISafetyScanner';
+---
+<ToolLayout
+  title="AI Safety Scanner — Secure Pride"
+  description="Scan text for PII, credentials, and prompt injection patterns before sending it to an AI service. No storage, no tracking."
+>
+  <AISafetyScanner client:only="react" />
+</ToolLayout>
