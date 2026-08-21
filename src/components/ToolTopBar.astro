@@ -1,0 +1,27 @@
+---
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<div class="sticky top-0 z-50 border-b border-dark-border bg-dark-bg/90 backdrop-blur-md">
+  <div class="mx-auto flex h-14 max-w-[1120px] items-center justify-between px-6">
+    <a
+      href="/"
+      class="font-display text-[0.95rem] font-bold uppercase tracking-[0.1em] text-brand-electric transition-colors duration-250 hover:opacity-80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-electric"
+      aria-label="Secure Pride home"
+    >
+      Secure<span class="text-brand-hotPink">&nbsp;Pride</span>
+    </a>
+    <div class="flex items-center gap-4">
+      <span class="hidden font-mono text-[0.7rem] uppercase tracking-[0.14em] text-text-muted sm:inline">{label}</span>
+      <a
+        href="/"
+        class="font-heading text-[0.85rem] font-semibold uppercase tracking-[0.05em] text-text-secondary transition-colors duration-250 hover:text-brand-electric focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-electric rounded-sm"
+      >
+        ← Back to site
+      </a>
+    </div>
+  </div>
+</div>
