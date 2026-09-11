@@ -81,10 +81,11 @@ For the static container:
 
 ```bash
 docker build -t secure-pride .
-docker run -p 8080:80 secure-pride
+docker run -p 8080:8080 secure-pride
 ```
 
-Release and token-rotation procedures: [docs/DOCKERHUB_TOKEN_WORKFLOW.md](docs/DOCKERHUB_TOKEN_WORKFLOW.md).
+Published image: `ghcr.io/mazze93/secure-pride`. Release, scan-gate, and
+publish pipeline: [docs/DOCKER_IMAGE_WORKFLOW.md](docs/DOCKER_IMAGE_WORKFLOW.md).
 
 ## Contribution gate
 
