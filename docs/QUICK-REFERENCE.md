@@ -209,9 +209,9 @@ pip install -r requirements.txt  # Install dependencies
 python -m pytest                  # Run tests
 python -m black .                 # Format code
 
-# Docker (see docs/DOCKERHUB_TOKEN_WORKFLOW.md for the full release pipeline)
+# Docker (see docs/DOCKER_IMAGE_WORKFLOW.md for the full release pipeline)
 docker build -t secure-pride .   # Build the production image
-docker run -p 8080:80 secure-pride  # Serve it at localhost:8080
+docker run -p 8080:8080 secure-pride  # Serve it at localhost:8080
 ```
 
 ---
