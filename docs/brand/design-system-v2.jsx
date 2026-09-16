@@ -1,38 +1,81 @@
 import { useState, useEffect, useRef } from "react";
 
 /* ═══════════════════════════════════════════════════════════════
-   SECURE PRIDE DESIGN SYSTEM v2.0
-   Rebuilt from moodboard: Neon cyberpunk + pride identity.
+   SECURE PRIDE DESIGN SYSTEM v2.0 — KINTSUGI
+   Brass and indigo, gem tones, fire-opal seams. The break is mended
+   in gold and the mend is the point.
    "Where we draw the line online."
+
+   Token values here MIRROR colors_and_type.css in secure-pride-design
+   (mazze93/secure-pride-design), which is the source of truth for the
+   design language. If the two disagree, that repo is correct and this
+   file is a bug — see its docs/journal/ for migration history.
    ═══════════════════════════════════════════════════════════════ */
 
 // ─── DESIGN TOKENS ──────────────────────────────────────────
 const T = {
   color: {
-    // Neon pride spectrum
+    // Gem-tone pride spectrum. Key kept as `neon` for back-compat, matching
+    // the --sp-neon-* aliases in the CSS; values are gems. Prefer `gem` below.
     neon: {
-      pink:    "#ff2d95",
-      magenta: "#e040fb",
-      purple:  "#b24bf3",
-      violet:  "#7c4dff",
-      blue:    "#448aff",
-      cyan:    "#06d6e0",
+      pink:    "#c81e6c",
+      magenta: "#b23aa8",
+      purple:  "#8b2ecc",
+      violet:  "#6a3dcc",
+      blue:    "#3a6ad9",
+      cyan:    "#0fb5c9",
       teal:    "#0a7e74",
-      green:   "#00e676",
-      yellow:  "#ffd600",
-      orange:  "#ff9100",
-      red:     "#ff3d00",
+      green:   "#10c96a",
+      yellow:  "#e8a500",
+      orange:  "#e8871a",
+      red:     "#c8321e",
     },
     // Rainbow gradient stops (for fills)
-    rainbow: ["#ff3d00","#ff9100","#ffd600","#00e676","#448aff","#b24bf3","#ff2d95"],
+    rainbow: ["#c8321e","#e8871a","#e8a500","#10c96a","#3a6ad9","#8b2ecc","#c81e6c"],
+
+    // Named gem tones — mirrors --sp-gem-* . Author new work against these.
+    gem: {
+      citrine:    "#e8a500",
+      emerald:    "#10c96a",
+      sapphire:   "#0fb5c9",
+      amethyst:   "#8b2ecc",
+      tourmaline: "#c81e6c",
+    },
+
+    // Brass / kintsugi — the mended seam, from the shield mark (--sp-brass-*)
+    brass: {
+      highlight: "#ffe8b8",
+      light:     "#f5d07a",
+      mid:       "#e2b25b",
+      base:      "#b48438",
+      dark:      "#6a4a1c",
+      earth:     "#5a3e1c",
+      deep:      "#3a2a12",
+      shadow:    "#2a1c08",
+    },
+
+    // Fire opal — the kintsugi voice; where the break shows (--sp-opal-*)
+    opal: {
+      cream: "#ffe8b8",
+      ember: "#ffa94d",
+      base:  "#ff5f1f",
+      core:  "#d63030",
+      deep:  "#7a1f2e",
+    },
 
     // Core brand (from icon pack + moodboard)
     brand: {
-      primary:   "#0a7e74",  // teal anchor
-      accent:    "#3a2a5e",  // deep purple
-      electric:  "#06d6e0",  // cyan neon
-      hotPink:   "#ff2d95",  // neon pink
-      violet:    "#b24bf3",  // neon violet
+      primary:     "#0a7e74",  // teal anchor
+      accent:      "#2a1f54",  // deep purple
+      electric:    "#0fb5c9",  // cyan
+      hotPink:     "#c81e6c",  // tourmaline
+      violet:      "#8b2ecc",  // amethyst
+      indigo:          "#0f1028",  // ground / deep field
+      indigoSlate:     "#1a1f3e",
+      indigoHero:      "#2a1f54",
+      indigoHighlight: "#d0d0f5",
+      indigoLight:     "#8a8ad0",
+      indigoMid:       "#4a4a8e",
     },
 
     // Surfaces — dark-first
@@ -53,12 +96,12 @@ const T = {
       border:     "#d4cfc7",
     },
 
-    // Semantic status (neon-coded)
+    // Semantic status (gem-coded) — mirrors --sp-status-* in colors_and_type.css
     status: {
-      protected: "#06d6e0",  // cyan — active protection
-      warning:   "#ffd600",  // yellow — needs attention
-      blocked:   "#ff2d95",  // hot pink — threat stopped
-      info:      "#448aff",  // blue — informational
+      protected: "#10c96a",  // emerald — active protection
+      warning:   "#e8a500",  // citrine — needs attention
+      blocked:   "#c81e6c",  // tourmaline — threat stopped
+      info:      "#0fb5c9",  // sapphire — informational
     },
 
     // Text
@@ -72,9 +115,9 @@ const T = {
 
   typography: {
     display: "'Orbitron', 'Rajdhani', sans-serif",
-    heading: "'Rajdhani', 'DM Sans', sans-serif",
-    body:    "'Source Sans 3', -apple-system, sans-serif",
-    mono:    "'JetBrains Mono', 'SF Mono', monospace",
+    heading: "'Rajdhani', 'Inter', sans-serif",
+    body:    "'Inter', system-ui, -apple-system, sans-serif",
+    mono:    "'JetBrains Mono', 'SF Mono', 'Cascadia Code', monospace",
 
     scale: {
       xs:   { size: "0.75rem",  lh: "1rem"     },
@@ -99,10 +142,10 @@ const T = {
   radius: { sm: "6px", md: "8px", lg: "12px", xl: "16px", "2xl": "20px", full: "9999px" },
 
   glow: {
-    cyan:    (i=0.5) => `0 0 ${20*i}px rgba(6,214,224,${0.4*i}), 0 0 ${60*i}px rgba(6,214,224,${0.15*i})`,
-    pink:    (i=0.5) => `0 0 ${20*i}px rgba(255,45,149,${0.4*i}), 0 0 ${60*i}px rgba(255,45,149,${0.15*i})`,
-    violet:  (i=0.5) => `0 0 ${20*i}px rgba(178,75,243,${0.4*i}), 0 0 ${60*i}px rgba(178,75,243,${0.15*i})`,
-    rainbow: "0 0 20px rgba(255,45,149,0.3), 0 0 40px rgba(178,75,243,0.2), 0 0 60px rgba(6,214,224,0.15)",
+    cyan:    (i=0.5) => `0 0 ${20*i}px rgba(15,181,201,${0.4*i}), 0 0 ${60*i}px rgba(15,181,201,${0.15*i})`,
+    pink:    (i=0.5) => `0 0 ${20*i}px rgba(200,30,108,${0.4*i}), 0 0 ${60*i}px rgba(200,30,108,${0.15*i})`,
+    violet:  (i=0.5) => `0 0 ${20*i}px rgba(139,46,204,${0.4*i}), 0 0 ${60*i}px rgba(139,46,204,${0.15*i})`,
+    rainbow: "0 0 20px rgba(200,30,108,0.3), 0 0 40px rgba(139,46,204,0.2), 0 0 60px rgba(15,181,201,0.15)",
   },
 
   motion: {
@@ -129,15 +172,15 @@ function CircuitPattern({ opacity = 0.06 }) {
     >
       <defs>
         <pattern id="circuit" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-          <path d="M20 0v40h40v40h40" stroke="#06d6e0" strokeWidth="1" fill="none" opacity="0.5" />
-          <path d="M0 60h30v-30h30" stroke="#b24bf3" strokeWidth="1" fill="none" opacity="0.4" />
-          <path d="M80 0v20h40" stroke="#ff2d95" strokeWidth="1" fill="none" opacity="0.3" />
-          <circle cx="20" cy="40" r="2.5" fill="#06d6e0" opacity="0.6" />
-          <circle cx="60" cy="80" r="2.5" fill="#b24bf3" opacity="0.5" />
-          <circle cx="100" cy="40" r="2" fill="#ff2d95" opacity="0.4" />
-          <circle cx="60" cy="40" r="2" fill="#06d6e0" opacity="0.3" />
-          <path d="M100 80v40" stroke="#06d6e0" strokeWidth="1" fill="none" opacity="0.25" />
-          <path d="M0 100h20" stroke="#b24bf3" strokeWidth="1" fill="none" opacity="0.2" />
+          <path d="M20 0v40h40v40h40" stroke="#0fb5c9" strokeWidth="1" fill="none" opacity="0.5" />
+          <path d="M0 60h30v-30h30" stroke="#8b2ecc" strokeWidth="1" fill="none" opacity="0.4" />
+          <path d="M80 0v20h40" stroke="#c81e6c" strokeWidth="1" fill="none" opacity="0.3" />
+          <circle cx="20" cy="40" r="2.5" fill="#0fb5c9" opacity="0.6" />
+          <circle cx="60" cy="80" r="2.5" fill="#8b2ecc" opacity="0.5" />
+          <circle cx="100" cy="40" r="2" fill="#c81e6c" opacity="0.4" />
+          <circle cx="60" cy="40" r="2" fill="#0fb5c9" opacity="0.3" />
+          <path d="M100 80v40" stroke="#0fb5c9" strokeWidth="1" fill="none" opacity="0.25" />
+          <path d="M0 100h20" stroke="#8b2ecc" strokeWidth="1" fill="none" opacity="0.2" />
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#circuit)" />
@@ -541,8 +584,9 @@ export default function SecurePrideDesignSystem() {
       position: "relative",
       overflow: "hidden",
     }}>
-      {/* Fonts */}
-      <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+      {/* Fonts: self-hosted via colors_and_type.css's @font-face rules
+          (project/fonts/) — no CDN. The host page is expected to load
+          that stylesheet; this component doesn't fetch its own fonts. */}
 
       {/* Full-page circuit pattern */}
       <CircuitPattern opacity={0.03} />
@@ -660,10 +704,10 @@ export default function SecurePrideDesignSystem() {
 
           <p style={{ fontWeight: 700, fontSize: T.typography.scale.xs.size, textTransform: "uppercase", letterSpacing: "0.08em", color: T.color.text.muted, marginBottom: T.spacing[3] }}>Status Signals</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(100px, 1fr))", gap: T.spacing[2], marginBottom: T.spacing[6] }}>
-            <Swatch color={T.color.status.protected} name="Protected" hex="#06d6e0" />
-            <Swatch color={T.color.status.warning}   name="Warning"   hex="#ffd600" />
-            <Swatch color={T.color.status.blocked}   name="Blocked"   hex="#ff2d95" />
-            <Swatch color={T.color.status.info}       name="Info"      hex="#448aff" />
+            <Swatch color={T.color.status.protected} name="Protected" hex="#10c96a" />
+            <Swatch color={T.color.status.warning}   name="Warning"   hex="#e8a500" />
+            <Swatch color={T.color.status.blocked}   name="Blocked"   hex="#c81e6c" />
+            <Swatch color={T.color.status.info}       name="Info"      hex="#0fb5c9" />
           </div>
 
           <p style={{ fontWeight: 700, fontSize: T.typography.scale.xs.size, textTransform: "uppercase", letterSpacing: "0.08em", color: T.color.text.muted, marginBottom: T.spacing[3] }}>Surfaces</p>
@@ -676,7 +720,7 @@ export default function SecurePrideDesignSystem() {
 
 
         {/* ══════════════ TYPOGRAPHY ══════════════ */}
-        <Section title="Typography" subtitle="Orbitron for display titles (sci-fi geometric). Rajdhani for headings (technical warmth). Source Sans 3 for body. JetBrains Mono for data.">
+        <Section title="Typography" subtitle="Orbitron for display titles (sci-fi geometric). Rajdhani for headings (technical warmth). Inter for body. JetBrains Mono for data.">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: T.spacing[4] }}>
             <NeonCard glowColor={T.color.neon.cyan}>
               <NeonText size="2xl" color={T.color.brand.electric}>Orbitron</NeonText>
@@ -695,7 +739,7 @@ export default function SecurePrideDesignSystem() {
             </NeonCard>
 
             <NeonCard glowColor={T.color.neon.pink}>
-              <p style={{ fontFamily: T.typography.body, fontSize: T.typography.scale["2xl"].size, fontWeight: 600, color: T.color.text.primary }}>Source Sans 3</p>
+              <p style={{ fontFamily: T.typography.body, fontSize: T.typography.scale["2xl"].size, fontWeight: 600, color: T.color.text.primary }}>Inter</p>
               <p style={{ color: T.color.text.muted, fontSize: T.typography.scale.xs.size, textTransform: "uppercase", letterSpacing: "0.06em", margin: `${T.spacing[2]} 0 ${T.spacing[3]}` }}>Body · Paragraphs · Long-form</p>
               <p style={{ fontFamily: T.typography.body, fontSize: T.typography.scale.base.size, color: T.color.text.secondary, lineHeight: T.typography.scale.base.lh }}>
                 Secure Pride builds accessible cybersecurity tools for LGBTQ+ organizations. We protect the people who protect our communities.
