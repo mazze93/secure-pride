@@ -22,7 +22,7 @@
     "@fontsource/jetbrains-mono": "^5.2.8",
     "@fontsource/orbitron": "^5.2.8",
     "@fontsource/rajdhani": "^5.2.7",
-    "astro": "^7.1.1",
+    "astro": "^7.2.8",
     "autoprefixer": "^10.4.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,7 +33,7 @@
     "@types/node": "^20.12.12",
     "@types/react": "^18.2.45",
     "typescript": "^5.4.5",
-    "vitest": "^4.1.0",
-    "wrangler": "^4.123.0"
+    "vitest": "^5.0.0",
+    "wrangler": "^4.131.0"
   }
 }

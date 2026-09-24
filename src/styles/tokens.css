@@ -39,16 +39,24 @@
   --sp-indigo:        #0f1028;
   --sp-indigo-slate:  #1a1f3e;
   --sp-indigo-hero:   #2a1f54;
+  --sp-indigo-highlight: #d0d0f5;
+  --sp-indigo-light:     #8a8ad0;
+  --sp-indigo-mid:       #4a4a8e;
   --sp-cyan:          #0fb5c9;
   --sp-hot-pink:      #c81e6c;
   --sp-violet:        #8b2ecc;
 
   /* ─── Brass / kintsugi palette — from the shield mark ───────── */
-  --sp-brass-highlight: #f5d07a;
-  --sp-brass-light:     #e2b25b;
+  /* Reconciled 2026-09-11 against colors-brand.html, the design repo's
+     richer specimen page: --sp-brass-mid/-dark previously held
+     #8a5f1e/#4a341a, values that don't appear anywhere in that page. */
+  --sp-brass-highlight: #ffe8b8;
+  --sp-brass-light:     #f5d07a;
+  --sp-brass-mid:       #e2b25b;
   --sp-brass:           #b48438;
-  --sp-brass-mid:       #8a5f1e;
-  --sp-brass-dark:      #4a341a;
+  --sp-brass-dark:      #6a4a1c;
+  --sp-brass-earth:     #5a3e1c;
+  --sp-brass-deep:      #3a2a12;
   --sp-brass-shadow:    #2a1c08;
 
   /* Fire opal — the kintsugi voice, where the break shows.
