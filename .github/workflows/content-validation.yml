@@ -57,6 +57,9 @@ jobs:
             npm install
           fi
 
+      - name: Validate design tokens
+        run: npm run check:tokens
+
       - name: Type check
         run: |
           pm="${{ steps.pm.outputs.pm }}"

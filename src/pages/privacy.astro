@@ -1,85 +1,121 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <Layout
-  title="Privacy Policy - SecurePride"
-  description="SecurePride privacy policy. We are committed to protecting your data."
+  title="Privacy and processing — Secure Pride"
+  description="Where scanner text goes, what the application logs, and which hosting details remain unverified."
   canonicalUrl="https://securepride.org/privacy/"
 >
   <Header />
-
-  <main id="main-content" class="min-h-screen">
-    <div class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
-      <h1 class="mb-4 font-display text-4xl sm:text-5xl font-bold text-text-primary">
-        Privacy Policy
+  <main id="main-content" class="page-wrap section-space">
+    <div class="max-w-3xl space-y-8 text-text-secondary">
+      <h1 class="font-heading text-4xl normal-case text-text-primary">
+        Privacy and processing
       </h1>
-      <p class="mb-8 text-text-secondary">Last updated: March 31, 2026</p>
-
-      <div class="prose prose-invert max-w-none space-y-8 text-text-secondary">
-        <section>
-          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Overview</h2>
-          <p>
-            SecurePride is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information.
-          </p>
-          <p class="mt-4 rounded-lg bg-dark-surface p-4 text-sm">
-            <strong>Note:</strong> This is a template privacy policy. You must customize this document to reflect SecurePride's actual data practices, including specific information about what data is collected, how it's used, and what security measures are in place. Consult with legal counsel to ensure compliance with applicable privacy laws.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Information We Collect</h2>
-          <p>We may collect information about you in a variety of ways. The information we may collect on the site includes:</p>
-          <ul class="list-disc list-inside space-y-2 mt-4">
-            <li>Personal identification information (name, email address, organization)</li>
-            <li>Information provided voluntarily through forms or communications</li>
-            <li>Log data from site access (IP address, browser type, pages visited)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Use of Your Information</h2>
-          <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the site to:</p>
-          <ul class="list-disc list-inside space-y-2 mt-4">
-            <li>Respond to your inquiries and fulfill your requests</li>
-            <li>Improve our website and services</li>
-            <li>Send marketing and informational emails (with your consent)</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Data Protection</h2>
-          <p>
-            SecurePride implements comprehensive security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction. Our systems use industry-standard encryption and secure data storage practices.
-          </p>
-        </section>
-
-        <section>
-          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Your Privacy Rights</h2>
-          <p>Depending on your location, you may have the right to:</p>
-          <ul class="list-disc list-inside space-y-2 mt-4">
-            <li>Access the personal data we hold about you</li>
-            <li>Request correction of inaccurate data</li>
-            <li>Request deletion of your data</li>
-            <li>Opt out of certain data processing activities</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2 class="mb-4 font-heading text-2xl font-bold text-text-primary">Contact Us</h2>
-          <p>If you have any questions about this Privacy Policy or our privacy practices, please contact us at:</p>
-          <p class="mt-4">
-            <strong>Email:</strong>{' '}
-            <a href="mailto:privacy@securepride.org" class="text-neon-cyan hover:underline">
-              privacy@securepride.org
-            </a>
-          </p>
-        </section>
-      </div>
+      <p>
+        Updated October 2, 2026. This notice describes the current public
+        scanner and contact surface.
+      </p>
+      <section>
+        <h2 class="font-heading text-2xl normal-case text-text-primary mb-4">
+          Before submitting text
+        </h2>
+        <p>
+          The public scanner sends your submission to Secure Pride’s
+          Cloudflare-hosted API. It does not run entirely on your device or
+          within your organization.
+        </p>
+        <p class="mt-4">
+          Use invented examples or text you are authorized to share. Do not
+          submit client records, health information, passwords, or details about
+          someone’s identity. Masking happens after the server receives the
+          original text.
+        </p>
+      </section>
+      <section>
+        <h2 class="font-heading text-2xl normal-case text-text-primary mb-4">
+          Scanner processing
+        </h2>
+        <p>
+          The current TypeScript scanner checks text against known patterns. Its
+          request handler does not send the text to an external AI model. The
+          application does not intentionally save the submitted text to a
+          database or include it in its audit log.
+        </p>
+        <p class="mt-4">
+          Text and results are held in the page’s memory while you use it. Clear
+          removes the displayed input and results; it does not delete hosting
+          logs or undo a request already received. Copying a redacted draft
+          places it on your device’s clipboard, which may sync across devices.
+        </p>
+      </section>
+      <section>
+        <h2 class="font-heading text-2xl normal-case text-text-primary mb-4">
+          Application audit metadata
+        </h2>
+        <p>
+          Each scan reaching the engine emits a structured log event. It
+          includes a trace identifier, timestamp, hashed actor identifier, input
+          length, detected data categories, injection severity, and policy
+          action. The public interface uses an anonymous actor identifier.
+        </p>
+        <p class="mt-4">
+          These events exclude the submitted text, but their categories can
+          still reveal sensitive context. A hashed identifier is not a guarantee
+          of anonymity.
+        </p>
+      </section>
+      <section>
+        <h2 class="font-heading text-2xl normal-case text-text-primary mb-4">
+          Hosting details still to verify
+        </h2>
+        <p>
+          Cloudflare processes network requests and may handle connection and
+          security metadata, such as IP addresses. We have not verified the
+          deployment’s log retention, log access, or processing locations for
+          this notice. We cannot promise zero hosting logs, a specific
+          residency, or a deletion deadline.
+        </p>
+        <p class="mt-4">
+          If those details are essential to your work, do not submit sensitive
+          information to the hosted scanner. Contact us to discuss the boundary
+          first.
+        </p>
+      </section>
+      <section>
+        <h2 class="font-heading text-2xl normal-case text-text-primary mb-4">
+          Contact and tracking
+        </h2>
+        <p>
+          The public contact links open your email app. Sending a message
+          discloses its contents and sender details to the email providers and
+          recipient. Include only what is necessary for your question.
+        </p>
+        <p class="mt-4">
+          The site application does not include an analytics SDK or persist
+          scanner text in browser storage. This statement does not cover hosting
+          security logs or external sites you choose to visit.
+        </p>
+      </section>
+      <section>
+        <h2 class="font-heading text-2xl normal-case text-text-primary mb-4">
+          Questions or deletion requests
+        </h2>
+        <p>
+          Email{" "}
+          <a class="sp-link" href="mailto:hello@securepride.org">
+            hello@securepride.org
+          </a>{" "}
+          to ask about processing or request deletion of information you
+          provided. Do not resend sensitive records as proof of your request.
+          What can be located or deleted depends on the information held and the
+          hosting configuration.
+        </p>
+      </section>
     </div>
   </main>
-
   <Footer />
 </Layout>

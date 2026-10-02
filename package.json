@@ -10,8 +10,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "node scripts/check-color-tokens.mjs && astro build && tsc --noEmit",
-    "check:tokens": "node scripts/check-color-tokens.mjs",
+    "check": "npm run check:tokens && astro build && tsc --noEmit",
+    "check:tokens": "node scripts/check-color-tokens.mjs && node scripts/check-design-tokens.mjs",
     "test": "vitest run",
     "astro": "astro"
   },

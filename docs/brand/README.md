@@ -22,7 +22,7 @@ Five principles govern all Secure Pride communications:
 
 ## Design System
 
-- **Typography**: Orbitron (display), Rajdhani (headings), Source Sans 3 (body), JetBrains Mono (code)
+- **Typography**: Orbitron (display), Rajdhani (headings), Inter (body), JetBrains Mono (code)
 - **Core palette (Kintsugi, live as of PR #44)**: Teal `#0a7e74`, Deep Purple `#2a1f54`, Cyan `#0fb5c9`, Hot Pink `#c81e6c`, plus a brass/gem accent set — see `secure-pride/src/styles/tokens.css` (mirrors `secure-pride-design/colors_and_type.css`, the tracked source of truth) for the full token list. This replaces the earlier neon-cyberpunk palette (Cyan `#06d6e0`, Pink `#ff2d95`, Purple `#3a2a5e`), retired 2026-08-14.
 - **Primary mark**: Shield-padlock (point-down orientation)
 - **Screen surface**: Dark-first (`#0a0a1a` background)
@@ -42,3 +42,17 @@ Supports Markdown with Secure Pride extensions:
 
 - Code: Apache 2.0
 - Documentation: CC BY 4.0
+
+## Public-site alignment (October 2026)
+
+The homepage uses the live catalog’s brass/indigo composition, Rajdhani
+headings, and Inter prose. Four brass roles now match the live CSS source.
+The dated source snapshot and SHA-256 digest live in `upstream/`.
+`npm run check:tokens` verifies shared values without network access.
+Upstream changes require a reviewed snapshot update; this check does not
+claim to detect changes on the remote site automatically.
+
+The upstream stylesheet retains Orbitron and cyan action aliases, while
+the catalog's public composition foregrounds Rajdhani and brass. The
+homepage follows the catalog; other surfaces retain their semantic roles.
+Fonts remain self-hosted in the application.

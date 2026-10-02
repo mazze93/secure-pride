@@ -306,23 +306,25 @@ We are experts who don't need jargon to prove it.
 
 ## Website Copy
 
-[Headline]: Cybersecurity for the organizations that protect our communities.
+[Headline]: Security infrastructure for people who cannot fail safely.
 
-[Subheadline]: Secure Pride scans your AI workflows for hidden threats and sensitive data leaks.
+[Subheadline]: Open-source security tools for LGBTQ+ organizations, built around real working conditions.
 
-[CTA]: Get protected
+[CTA]: See the available tool
 
-[Trust bar]: Built by LGBTQ+ technologists. Open source. Your data never leaves your infrastructure.
+[Processing boundary]: The manual text scanner runs on Cloudflare. Use invented examples. Known-pattern checks cannot establish safety.
 
 ---
 
-## Pricing
+## Available Today
 
-[Community Tier]: Free for organizations with fewer than 10 staff. Full scanner. Full dashboard. No feature gates.
+[Text scanner]: No account or payment required. Checks a single submission and returns findings and, when masking applies, a redacted draft for review.
 
-[Organization]: $200/month for teams of 10-50. Priority support, custom policy templates, audit log exports.
+[Local distribution]: Docker serves the static interface only. Full-stack local development uses Wrangler.
 
-[Coalition]: Custom pricing for networks of organizations. Talk to us.`;
+[In development]: The Rust/WASM replacement is not deployed to the public route.
+
+[Contact]: Email hello@securepride.org without client records or sensitive details.`;
 
 // ═══════════════════════════════════════════════════════════════
 //  MAIN EXPORT

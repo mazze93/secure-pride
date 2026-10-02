@@ -1,31 +1,241 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import DemoDashboard from '../components/DemoDashboard.astro';
-import Problem from '../components/Problem.astro';
-import WhatWeDo from '../components/WhatWeDo.astro';
-import Pricing from '../components/Pricing.astro';
-import Credibility from '../components/Credibility.astro';
-import FinalCta from '../components/FinalCta.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/community.css";
+const risks = [
+  {
+    exposure: "A client note pasted into an AI tool",
+    mechanism:
+      "Names, contact details, or contextual clues can identify someone outside your organization.",
+    cost: "The person described may face unwanted disclosure, harassment, or loss of trust in a service they need.",
+    boundary:
+      "A text scan can flag some patterns. It cannot find every identifying detail or approve sharing.",
+  },
+  {
+    exposure: "A shared account after a volunteer leaves",
+    mechanism:
+      "A working login can expose messages, records, and internal plans.",
+    cost: "Clients and staff bear the exposure; the program leader inherits recovery work and interrupted services.",
+    boundary:
+      "Our scanner does not secure accounts. Access review, multi-factor authentication, and recovery planning remain separate work.",
+  },
+  {
+    exposure: "An instruction hidden in a document",
+    mechanism:
+      "An AI tool may follow text from an untrusted source instead of the task you gave it.",
+    cost: "A misleading draft or disclosed information can harm the person relying on your program.",
+    boundary:
+      "Pattern checks catch some known forms. Review the source and output; a clean scan is not proof of safety.",
+  },
+];
 ---
 
 <Layout
-  title="Secure Pride — Cybersecurity for LGBTQ+ Organizations"
-  description="Open-source AI security scanner built for community organizations. Detect prompt injections, mask sensitive data, and monitor protection status—in plain language."
+  title="Secure Pride — Security infrastructure for people who cannot fail safely"
+  description="Open-source security tools for LGBTQ+ organizations. Start with a bounded text scanner, understand its limits, and see who is building it."
   canonicalUrl="https://securepride.org/"
 >
   <Header />
-  <main id="main-content">
-    <Hero />
-    <DemoDashboard />
-    <Problem />
-    <WhatWeDo />
-    <Pricing />
-    <Credibility />
-    <FinalCta />
+  <main id="main-content" class="community-home">
+    <section class="community-hero page-wrap" aria-labelledby="mission-title">
+      <p class="eyebrow">Secure Pride · Built around real working conditions</p>
+      <h1 id="mission-title">
+        Security infrastructure for people who cannot <span>fail safely.</span>
+      </h1>
+      <p class="hero-lede">
+        You’re keeping a program running, answering messages, and making limited
+        resources stretch. Security has to work inside those conditions.
+      </p>
+      <div class="action-row">
+        <a class="sp-button" href="#tools">
+          See the available tool
+        </a>
+        <a class="sp-link" href="#stakes">
+          Understand the stakes →
+        </a>
+      </div>
+      <p class="small-note">
+        No account or payment needed for the text scanner. Hosted processing on
+        Cloudflare.
+      </p>
+      <p class="hero-context">
+        We build open-source tools for LGBTQ+ organizations where a privacy
+        failure can become someone else’s personal risk. Start with what is
+        available today, understand its limits, and decide whether it fits your
+        work.
+      </p>
+      <div class="seam" aria-hidden="true"></div>
+    </section>
+
+    <section class="page-wrap section-space" aria-labelledby="conditions-title">
+      <p class="eyebrow">The person doing the work</p>
+      <div class="two-column">
+        <h2 id="conditions-title">One more task is not a security strategy.</h2>
+        <div class="prose-stack">
+          <p>
+            A program leader may also be the fundraiser, scheduler, case
+            coordinator, and person fixing the printer. That work may be
+            underpaid, unpaid, or interrupted by something more urgent.
+          </p>
+          <p>
+            A control that only works with a dedicated security team is a poor
+            fit. Our tools should make a specific decision easier, show their
+            limits, and leave you with something usable.
+          </p>
+          <p>
+            The goal is to reduce avoidable exposure without making you
+            responsible for solving the hostility your community lives with.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="tools"
+      class="page-wrap section-space"
+      aria-labelledby="tools-title"
+    >
+      <p class="eyebrow">Available today</p>
+      <h2 id="tools-title">A bounded check before you share.</h2>
+      <article class="tool-card">
+        <div>
+          <span class="availability">Available · Manual text check</span>
+          <h3>AI Safety Scanner</h3>
+          <p>
+            Checks text for known prompt-injection, credential, and
+            personal-data patterns. It returns findings and, when masking
+            applies, a redacted draft for you to review.
+          </p>
+          <a class="sp-button" href="/tools/scanner">
+            Try with example text
+          </a>
+        </div>
+        <div class="tool-boundary">
+          <h4>Before you use it</h4>
+          <ul>
+            <li>Text is sent to our Cloudflare-hosted scanner.</li>
+            <li>
+              Do not submit real client records, passwords, health information,
+              or identity details.
+            </li>
+            <li>
+              No match means no matching pattern was found. It does not mean the
+              text is safe.
+            </li>
+            <li>
+              This checks one submission. It does not monitor your organization
+              or connect to your AI provider.
+            </li>
+          </ul>
+          <a class="sp-link" href="/privacy">
+            Read how processing and logs work →
+          </a>
+        </div>
+      </article>
+      <div class="two-column development-note">
+        <div>
+          <h3>Inspect it. Run it. Know the boundary.</h3>
+          <p>
+            The code is Apache 2.0 licensed. The Docker image serves the static
+            interface; it does not include the scanner API. Full-stack local
+            development uses Wrangler.
+          </p>
+          <a
+            class="sp-link"
+            href="https://github.com/mazze93/secure-pride#run-locally"
+          >
+            Source and local setup →
+          </a>
+        </div>
+        <div>
+          <h3>In development</h3>
+          <p>
+            The Rust/WASM scanner is built but not deployed to the public
+            scanner route. Community playbooks and deployment templates remain
+            roadmap work.
+          </p>
+          <a
+            class="sp-link"
+            href="https://github.com/mazze93/secure-pride/tree/main/scanner-rs"
+          >
+            Inspect the next scanner →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="stakes"
+      class="page-wrap section-space"
+      aria-labelledby="stakes-title"
+    >
+      <p class="eyebrow">Threats, consequences, responsibility</p>
+      <h2 id="stakes-title">Who pays when a control fails?</h2>
+      <p class="section-intro">
+        These are scenarios to plan around, not claims about incidents at your
+        organization. The person bearing the cost may never have chosen the
+        tool.
+      </p>
+      <div class="risk-grid">
+        {risks.map((risk) => (
+          <article class="risk-card">
+            <h3>{risk.exposure}</h3>
+            <p>{risk.mechanism}</p>
+            <h4>Who bears the cost</h4>
+            <p>{risk.cost}</p>
+            <h4>What this tool can change</h4>
+            <p>{risk.boundary}</p>
+          </article>
+        ))}
+      </div>
+      <p class="section-intro">
+        A technical control cannot resolve political hostility, coercion, or
+        chronic underfunding. It can reduce a particular exposure and make the
+        next decision clearer.
+      </p>
+    </section>
+
+    <section
+      id="about"
+      class="page-wrap section-space founder-section"
+      aria-labelledby="founder-title"
+    >
+      <p class="eyebrow">A person you can hold accountable</p>
+      <div class="two-column">
+        <div>
+          <h2 id="founder-title">
+            I’m Mazze.
+            <br />I founded Secure Pride.
+          </h2>
+          <a class="sp-link" href="https://mazzeleczzare.com/about">
+            Meet the founder →
+          </a>
+        </div>
+        <div class="prose-stack">
+          <p>
+            I work across security research, engineering, and design. I’m
+            building Secure Pride for the people keeping LGBTQ+ organizations
+            running, and the people who rely on them.
+          </p>
+          <p>
+            I want the work to be inspectable: what a tool does, where it sends
+            information, what it misses, and who is responsible for it. You
+            should not have to trust a protection badge to understand those
+            things.
+          </p>
+          <div class="action-row">
+            <a class="sp-link" href="https://mazzeleczzare.com/work">
+              My work →
+            </a>
+            <a class="sp-link" href="https://github.com/mazze93/secure-pride">
+              Secure Pride source →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
     <Contact />
   </main>
   <Footer />
