@@ -1,0 +1,6 @@
+{
+  "source": "https://design.securepride.org/colors_and_type.css",
+  "retrieved": "2026-10-02",
+  "sha256": "fc87aa48932de47aec0e2680fbd3b0b50477f9ca50126b89cf69c5e3bb2a63c0",
+  "scope": "Shared --sp-* token values; catalog composition uses Rajdhani headings and brass/indigo. Preserve existing cyan semantic actions on other surfaces."
+}

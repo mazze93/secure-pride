@@ -1,24 +1,23 @@
-/* ════════════════════════════════════════════════════════════
-   Secure Pride — Kintsugi design tokens (color layer)
-
-   Source of truth: secure-pride-design/project/colors_and_type.css
-   (the git-tracked design system repo, design.securepride.org).
-   These are the same names and values, kept in sync by hand until
-   Phase 4's automated bridge lands — diff against that file directly
-   when the design repo's palette changes.
-
-   tailwind.config.ts references these via var(--sp-*) instead of
-   literal hex, so a repaint means editing values here once.
-
-   A prior version of this file mirrored a different, disconnected
-   Kintsugi export (a claude.ai Design "DTCG" artifact) that disagreed
-   with the git repo on several roles (notably: fire-opal as the
-   primary action color, vs. this source's cyan/sapphire). That
-   export was retired 2026-08-14 in favor of this repo's own tracked
-   source — see docs/decisions/ for the reskin correction.
-   ════════════════════════════════════════════════════════════ */
+/* Secure Pride Kintsugi color tokens.
+   Shared values are validated against the dated live-source snapshot at
+   docs/brand/upstream/colors_and_type.css by check-design-tokens.mjs.
+   Snapshot provenance and digest: docs/brand/upstream/snapshot.json.
+   This is an offline reproducible check; upstream updates need review. */
 
 :root {
+  /* Shared spacing tokens from the pinned design source. */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+
   /* ─── Surfaces (dark-first, unchanged from v1) ──────────────── */
   --sp-void:          #05050f;
   --sp-bg:            #0a0a1a;
@@ -47,14 +46,12 @@
   --sp-violet:        #8b2ecc;
 
   /* ─── Brass / kintsugi palette — from the shield mark ───────── */
-  /* Reconciled 2026-09-11 against colors-brand.html, the design repo's
-     richer specimen page: --sp-brass-mid/-dark previously held
-     #8a5f1e/#4a341a, values that don't appear anywhere in that page. */
-  --sp-brass-highlight: #ffe8b8;
-  --sp-brass-light:     #f5d07a;
-  --sp-brass-mid:       #e2b25b;
+  /* Brass roles match the pinned live CSS source. */
+  --sp-brass-highlight: #f5d07a;
+  --sp-brass-light:     #e2b25b;
+  --sp-brass-mid:       #8a5f1e;
   --sp-brass:           #b48438;
-  --sp-brass-dark:      #6a4a1c;
+  --sp-brass-dark:      #4a341a;
   --sp-brass-earth:     #5a3e1c;
   --sp-brass-deep:      #3a2a12;
   --sp-brass-shadow:    #2a1c08;
